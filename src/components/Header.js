@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -21,8 +22,8 @@ const Header = () => {
 				</IconButton>
 			</Grid>
 			<Grid item xs={8} textAlign={'center'}>
-				タイトル
-					</Grid>
+				<Link to="/top">タイトル</Link>
+			</Grid>
 			<Grid item xs={1}>
 				<Button 
 					variant="outlined"

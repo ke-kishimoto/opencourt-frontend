@@ -1,6 +1,6 @@
 import LoginForm from '../components/LoginForm';
 import Grid from '@mui/material/Grid';
-
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -9,10 +9,10 @@ const Login = () => {
 			<Grid container spacing={2} margin={1}>
 				<Grid item xs={3} />
 				<Grid item xs={2}>
-					パスワードを忘れた場合
+					<Link to="/passwordForget">パスワードを忘れた方はこちら</Link>
 				</Grid>
 				<Grid item xs={2}>
-					新規登録
+					<Link to="/newUser">新規登録</Link>
 				</Grid>
 				<Grid item xs={4} />
 			</Grid>
