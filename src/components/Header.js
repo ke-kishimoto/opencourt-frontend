@@ -32,7 +32,12 @@ const Header = () => {
 				</Button>
 			</Grid>
 			<Grid item xs={1}>
-				<Button variant="outlined">新規登録</Button>
+				<Button 
+					variant="outlined"
+					onClick={() => { navigate('/newUser') }}
+				>
+					新規登録
+				</Button>
 			</Grid>
 		</Grid>
 	)

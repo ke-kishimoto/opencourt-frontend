@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 const LoginForm = () => {
 
 	return (
-		<Grid container spacing={2} margin={1}>
+		<Grid container spacing={5} margin={1}>
 			<Grid item xs={3} />
 			<Grid item xs={5}>
 				<TextField
