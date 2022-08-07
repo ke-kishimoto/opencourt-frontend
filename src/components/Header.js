@@ -35,7 +35,7 @@ const Header = () => {
 					<MenuIcon />
 				</IconButton>
 			</Grid>
-			<Grid item xs={8} textAlign={'center'}>
+			<Grid item xs={8}>
 				<Link to="/">タイトル</Link>
 			</Grid>
 			<Grid item xs={1}>
