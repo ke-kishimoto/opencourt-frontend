@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
 import EventInfoItem from '../components/EventInfoItem'
+import { useNavigate } from 'react-router-dom';
 
 // カレンダーの2次元配列を作成
 const createCalendar = (year, month) => {
@@ -65,6 +66,7 @@ const Td = styled.td`
 
 const Calendar = () => {
 
+	const navigate = useNavigate();
 	const [year, setYear] = useState(new Date().getFullYear());
 	const [month, setMonth] = useState(new Date().getMonth());
 	const [days, setDays] = useState([]);
@@ -148,7 +150,7 @@ const Calendar = () => {
 																	}
 																}}
 																
-																onClick={() => {}}
+																onClick={() => {navigate(`/eventDetail/${ev.id}`)}}
 															>
 																{ev.short_name}
 															</Box>

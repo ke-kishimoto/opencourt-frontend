@@ -1,8 +1,12 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
 const EventInfoItem = (props) => {
+
+	const navigate = useNavigate();
+
 	return(
 		<Box
 			sx={{
@@ -15,6 +19,7 @@ const EventInfoItem = (props) => {
 					opacity: '0.7',
 				}
 			}}
+			coClick={() => {navigate(`/eventDetail/${props.eventInfo.id}`)}}
 		>
 			<Grid container spacing={1}>
 				<Grid item xs={12}>

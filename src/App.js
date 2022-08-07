@@ -9,6 +9,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import UserList from './pages/UserList';
 import UserDetail from './pages/UserDetail';
 import TemplateManagement from './pages/TemplateManagement';
+import EventDetail from './pages/EventDetail';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/userList" element={<UserList/>}></Route>
           <Route path="/userDetail" element={<UserDetail/>}></Route>
           <Route path="/templateManagement" element={<TemplateManagement/>}></Route>
+          <Route path="/eventDetail/:id" element={<EventDetail/>}></Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
