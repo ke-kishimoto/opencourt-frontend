@@ -5,6 +5,8 @@ import Top from './pages/Top';
 import Login from './pages/Login';
 import NewUser from './pages/NewUser';
 import PasswordForget from './pages/PasswordForget';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import UserList from './pages/UserList';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/newUser" element={<NewUser />}></Route>
           <Route path="/passwordForget" element={<PasswordForget />}></Route>
+          <Route path="/privacyPolicy" element={<PrivacyPolicy />}></Route>
+          <Route path="/userList" element={<UserList/>}></Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

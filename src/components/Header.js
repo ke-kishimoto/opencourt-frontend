@@ -64,6 +64,18 @@ const Header = () => {
 			onClick={handleClose}
 		>
 			<MenuItem>マイページ</MenuItem>
+			<MenuItem>イベント管理</MenuItem>
+			<MenuItem 
+				onClick={() => navigate('/userList')}	
+			>
+				ユーザー管理
+			</MenuItem>
+			<MenuItem>テンプレート管理</MenuItem>
+			<MenuItem>セグメント配信</MenuItem>
+			<MenuItem>売上管理</MenuItem>
+			<MenuItem>問い合わせ管理</MenuItem>
+			<MenuItem>お知らせ管理</MenuItem>
+			<MenuItem>システム設定</MenuItem>
 			<MenuItem>参加イベント一覧</MenuItem>
 			<MenuItem>一括申し込み</MenuItem>
 			<MenuItem>問い合わせ</MenuItem>
