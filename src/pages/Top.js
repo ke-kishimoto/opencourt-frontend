@@ -1,8 +1,11 @@
+import Calendar from '../components/Calendar';
 
 const Top = () => {
-    return (
-        <></>
-    )
+	return (
+		<>
+			<Calendar />
+		</>
+	)
 }
 
 export default Top;
