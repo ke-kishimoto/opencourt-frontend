@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
+import EventInfoItem from '../components/EventInfoItem'
 
 // カレンダーの2次元配列を作成
 const createCalendar = (year, month) => {
@@ -40,8 +41,6 @@ const createCalendar = (year, month) => {
 	}
 	days.push(weekDay);
 
-	console.log(days)
-
 	return days;
 
 }
@@ -74,9 +73,9 @@ const Calendar = () => {
 	useEffect(() => {
 		setDays(createCalendar(year, month));
 		setEvents([
-			{ id: 1, day: 1, short_name: 'バスケ' },
-			{ id: 2, day: 1, short_name: 'サッカー' },
-			{ id: 3, day: 2, short_name: '野球' },
+			{ id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール' },
+			{ id: 2, day: 1, short_name: 'サッカー', event_name: 'サッカー' },
+			{ id: 3, day: 2, short_name: '野球', event_name: '野球' },
 		])
 	}, [year, month])
 
@@ -228,7 +227,16 @@ const Calendar = () => {
 						}}
 					>キャンセル待ち</Box>
 				</Grid>
-			</Grid >
+				{events.map(e => {
+					return (
+						<Grid item xs={12}>
+							<EventInfoItem 
+								eventInfo={e}
+							/>
+						</Grid>
+					)
+				})}
+			</Grid>
 		</Container >
 	)
 
