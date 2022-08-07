@@ -1,8 +1,13 @@
 import { Box } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 const UserItem = () => {
+
+	const navigate = useNavigate();
+
 	return (
 		<Box sx={{ p: 2, m: 2 ,
 			border: '1px solid grey',
@@ -11,8 +16,9 @@ const UserItem = () => {
 			'&:hover': {
 				backgroundColor: '#EEE',
 				cursor: 'pointer',
-      },
-		}}>
+			},}}
+			onClick={() => {navigate('/userDetail')}}
+		>
 			<Grid container>
 				<Grid item xs={1}>
 					<Avatar>U</Avatar>

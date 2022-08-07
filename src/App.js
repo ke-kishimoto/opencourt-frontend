@@ -7,6 +7,8 @@ import NewUser from './pages/NewUser';
 import PasswordForget from './pages/PasswordForget';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import UserList from './pages/UserList';
+import UserDetail from './pages/UserDetail';
+import TemplateManagement from './pages/TemplateManagement';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/passwordForget" element={<PasswordForget />}></Route>
           <Route path="/privacyPolicy" element={<PrivacyPolicy />}></Route>
           <Route path="/userList" element={<UserList/>}></Route>
+          <Route path="/userDetail" element={<UserDetail/>}></Route>
+          <Route path="/templateManagement" element={<TemplateManagement/>}></Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
