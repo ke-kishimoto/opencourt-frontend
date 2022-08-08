@@ -20,7 +20,7 @@ const TemplateManagement = () => {
 	}, [])
 
 	return (
-		<Container maxWidth={'md'}>
+		<Container maxWidth={'lg'}>
 
 			<Grid container spacing={3} margin={5} >
 				<Grid item xs={12}>

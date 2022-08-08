@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 
 const PrivacyPolicyManagement = () => {
 	return (
-		<Container maxWidth={'md'}>
+		<Container maxWidth={'lg'}>
 			<Grid container spacing={5} margin={1}>
 				<Grid item xs={12}>
 					<Typography>プライバシーポリシー管理</Typography>

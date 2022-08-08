@@ -20,7 +20,7 @@ const LogManagement = () => {
 	}, [])
 
 	return (
-		<Container maxWidth={'md'}>
+		<Container maxWidth={'lg'}>
 			<Grid container spacing={5} margin={1}>
 				<Grid item xs={12}>
 					<Typography>ログ管理</Typography>
