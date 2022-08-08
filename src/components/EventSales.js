@@ -46,17 +46,44 @@ const EventSales = () => {
 							<Typography>{e.user_name}</Typography>
 						</Grid>
 						<Grid item xs={3}>
-							<Typography>出欠</Typography>
+							<FormControl sx={{ width: '50%' }}>
+								<InputLabel>出欠</InputLabel>
+								<Select
+									required
+									name="attendance"
+									label="出欠"
+								>
+									<MenuItem value={1}>{'○'}</MenuItem>
+									<MenuItem value={2}>{'×'}</MenuItem>
+								</Select>
+							</FormControl>
 						</Grid>
 						<Grid item xs={3}>
-							<Typography>回収金額</Typography>
+							<TextField
+								fullWidth
+								type="number"
+								label="回収金額"
+								variant="outlined"
+							/>
 						</Grid>
 						<Grid item xs={3}>
-							<Typography>備考</Typography>
+						<TextField
+								fullWidth
+								label="備考"
+								variant="outlined"
+							/>
 						</Grid>
 					</>
 				)
 			})}
+				<Grid item xs={10}/>
+				<Grid item xs={2}>
+					<Button
+						variant="contained"
+						>
+						登録
+					</Button>
+				</Grid>
 			</Grid>
 		</Container>
 	)
