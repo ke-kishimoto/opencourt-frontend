@@ -12,6 +12,7 @@ import TemplateManagement from './pages/TemplateManagement';
 import EventDetail from './pages/EventDetail';
 import PrivacyPolicyManagement from './pages/PrivacyPolicyMnagement';
 import LogManagement from './pages/LogManagement';
+import UserCategory from './pages/UserCategory';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/eventDetail/:id" element={<EventDetail/>}></Route>
           <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
           <Route path="/logManagement" element={<LogManagement/>}></Route>
+          <Route path="/userCategory" element={<UserCategory/>}></Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

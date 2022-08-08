@@ -74,6 +74,11 @@ const Header = () => {
 				>
 					ログ管理
 				</MenuItem>
+				<MenuItem
+					onClick={() => {navigate('/UserCategory')}}
+				>
+					ユーザーカテゴリ管理
+				</MenuItem>
 				<MenuItem>イベント管理</MenuItem>
 				<MenuItem
 					onClick={() => navigate('/userList')}
