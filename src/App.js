@@ -13,7 +13,8 @@ import EventDetail from './pages/EventDetail';
 import PrivacyPolicyManagement from './pages/PrivacyPolicyMnagement';
 import LogManagement from './pages/LogManagement';
 import UserCategory from './pages/UserCategory';
-import SegmentDelivery from './pages/SegmentDelivery'
+import SegmentDelivery from './pages/SegmentDelivery';
+import EventSales from './components/EventSales';
 
 function App() {
   return (
@@ -29,11 +30,13 @@ function App() {
           <Route path="/userList" element={<UserList/>}></Route>
           <Route path="/userDetail" element={<UserDetail/>}></Route>
           <Route path="/templateManagement" element={<TemplateManagement/>}></Route>
-          <Route path="/eventDetail/:id" element={<EventDetail/>}></Route>
+          <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>
           <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
           <Route path="/logManagement" element={<LogManagement/>}></Route>
           <Route path="/userCategory" element={<UserCategory/>}></Route>
-          <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>
+          <Route path="/eventDetail/:id" element={<EventDetail/>}>
+            <Route path="eventSales" element={<EventSales/>}></Route>
+          </Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

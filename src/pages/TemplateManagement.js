@@ -15,11 +15,11 @@ const TemplateManagement = () => {
 
 	useEffect(() => {
 		setTemplates([
-			{id: 1, templateName: 'テンプレート名1'},
+			{ id: 1, templateName: 'テンプレート名1' },
 		])
 	}, [])
 
-  return (
+	return (
 		<Container maxWidth={'md'}>
 
 			<Grid container spacing={3} margin={5} >
@@ -27,7 +27,7 @@ const TemplateManagement = () => {
 					<Typography>テンプレート管理</Typography>
 				</Grid>
 				<Grid item xs={12}>
-				<FormControl sx={{ width: '50%' }}>
+					<FormControl sx={{ width: '50%' }}>
 						<InputLabel>テンプレート</InputLabel>
 						<Select
 							required
@@ -94,18 +94,18 @@ const TemplateManagement = () => {
 				</Grid>
 				<Grid item xs={6}>
 					<Button
-							variant="outline"
-						>
-							クリア
+						variant="outline"
+					>
+						クリア
 							</Button>
-					</Grid>
+				</Grid>
 				<Grid item xs={6}>
 					<Button
-							variant="contained"
-						>
-							登録
+						variant="contained"
+					>
+						登録
 							</Button>
-					</Grid>
+				</Grid>
 			</Grid>
 		</Container>
 	)
