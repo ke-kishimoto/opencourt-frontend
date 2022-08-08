@@ -90,7 +90,11 @@ const Header = () => {
 				>
 					テンプレート管理
 			</MenuItem>
-				<MenuItem>セグメント配信</MenuItem>
+				<MenuItem
+					onClick={() => navigate('/segmentDelivery')}
+				>
+					セグメント配信
+				</MenuItem>
 				<MenuItem>売上管理</MenuItem>
 				<MenuItem>問い合わせ管理</MenuItem>
 				<MenuItem>お知らせ管理</MenuItem>

@@ -13,6 +13,7 @@ import EventDetail from './pages/EventDetail';
 import PrivacyPolicyManagement from './pages/PrivacyPolicyMnagement';
 import LogManagement from './pages/LogManagement';
 import UserCategory from './pages/UserCategory';
+import SegmentDelivery from './pages/SegmentDelivery'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
           <Route path="/logManagement" element={<LogManagement/>}></Route>
           <Route path="/userCategory" element={<UserCategory/>}></Route>
+          <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
