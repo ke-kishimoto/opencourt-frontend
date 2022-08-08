@@ -11,6 +11,7 @@ import UserDetail from './pages/UserDetail';
 import TemplateManagement from './pages/TemplateManagement';
 import EventDetail from './pages/EventDetail';
 import PrivacyPolicyManagement from './pages/PrivacyPolicyMnagement';
+import LogManagement from './pages/LogManagement';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/templateManagement" element={<TemplateManagement/>}></Route>
           <Route path="/eventDetail/:id" element={<EventDetail/>}></Route>
           <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
+          <Route path="/logManagement" element={<LogManagement/>}></Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

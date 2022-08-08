@@ -67,7 +67,12 @@ const Header = () => {
 				<MenuItem
 					onClick={() => {navigate('/privacyPolicyManagement')}}
 				>
-					プライバシー管理
+					プライバシーポリシー管理
+				</MenuItem>
+				<MenuItem
+					onClick={() => {navigate('/logManagement')}}
+				>
+					ログ管理
 				</MenuItem>
 				<MenuItem>イベント管理</MenuItem>
 				<MenuItem
