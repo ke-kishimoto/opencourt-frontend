@@ -6,8 +6,8 @@ const EventDetailItem = () => {
 	return (
 		<Box
 		sx={{
-			p: 2,
-			m: 5,
+      p: 2,
+      marginTop: 2,
 			border: 'solid 1px #0C9',
 			borderRadius: 3,
 			

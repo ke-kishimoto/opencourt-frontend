@@ -1,4 +1,3 @@
-import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -22,8 +21,8 @@ const EventSales = () => {
 	}, []);
 
 	return (
-		<Container>
-			<Grid container spacing={5} margin={1}>
+		<Box>
+			<Grid container spacing={3}>
 				<Grid item xs={3}>
 					<Typography>名前</Typography>
 				</Grid>
@@ -85,7 +84,7 @@ const EventSales = () => {
 					</Button>
 				</Grid>
 			</Grid>
-		</Container>
+		</Box>
 	)
 }
 

@@ -15,6 +15,7 @@ import LogManagement from './pages/LogManagement';
 import UserCategory from './pages/UserCategory';
 import SegmentDelivery from './pages/SegmentDelivery';
 import EventSales from './components/EventSales';
+import JoinCancel from './components/JoinCancel';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/userCategory" element={<UserCategory/>}></Route>
           <Route path="/eventDetail/:id" element={<EventDetail/>}>
             <Route path="eventSales" element={<EventSales/>}></Route>
+            <Route path="joinCancel" element={<JoinCancel/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
