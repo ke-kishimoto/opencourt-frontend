@@ -19,7 +19,9 @@ const EventInfoItem = (props) => {
 					opacity: '0.7',
 				}
 			}}
-			coClick={() => {navigate(`/eventDetail/${props.eventInfo.id}`)}}
+			onClick={() => {
+        navigate(`/eventDetail/${props.eventInfo.id}`)
+      }}
 		>
 			<Grid container spacing={1}>
 				<Grid item xs={12}>
