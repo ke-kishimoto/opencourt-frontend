@@ -22,7 +22,7 @@ const EventDetail = () => {
           sx={{
             m: 3
           }}
-          onClick={() => { }}
+          onClick={() => { navigate('joinForm') }}
         >
           参加申し込み
           </Button>
