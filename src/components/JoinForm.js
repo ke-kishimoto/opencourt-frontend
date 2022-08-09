@@ -3,11 +3,8 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import CategorySelectBox from '../elements/CategorySelectBox';
+import GenderSelectBox from '../elements/GenderSelectBox';
 import { useState, useEffect } from "react";
 
 const JoinForm = () => {
@@ -16,17 +13,6 @@ const JoinForm = () => {
   const companion = {
     name: '', gender: '', category: '',
   };
-
-  const gender = [
-    { label: '男性', value: 'men' },
-    { label: '女性', value: 'women' },
-  ]
-
-  const categories = [
-    { id: 1, label: '社会人' },
-    { id: 2, label: '大学生' },
-    { id: 3, label: '高校生以下' },
-  ]
 
   return (
     <Box>
@@ -42,25 +28,7 @@ const JoinForm = () => {
           />
         </Grid>
         <Grid item xs={6}>
-          <FormControl sx={{ width: '50%' }}>
-            <InputLabel>性別</InputLabel>
-            <Select
-              required
-              name="gender"
-              label="性別"
-            >
-              {gender.map(e => {
-                return (
-                  <MenuItem
-                    value={e.value}
-                    key={e.value}
-                  >
-                    {e.label}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
+          <GenderSelectBox />
         </Grid>
         <Grid item xs={6}>
           <CategorySelectBox />
@@ -92,25 +60,7 @@ const JoinForm = () => {
                 />
               </Grid>
               <Grid item xs={4}>
-                <FormControl sx={{ width: '50%' }}>
-                  <InputLabel>性別</InputLabel>
-                  <Select
-                    required
-                    name="gender"
-                    label="性別"
-                  >
-                    {gender.map(e => {
-                      return (
-                        <MenuItem
-                          value={e.value}
-                          key={e.value}
-                        >
-                          {e.label}
-                        </MenuItem>
-                      );
-                    })}
-                  </Select>
-                </FormControl>
+                <GenderSelectBox />      
               </Grid>
               <Grid item xs={4}>
                 <CategorySelectBox />
