@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
+import CategorySelectBox from '../elements/CategorySelectBox';
 
 const UserForm = () => {
 
@@ -64,25 +65,7 @@ const UserForm = () => {
 					</FormControl>
 				</Grid>
 				<Grid item xs={12}>
-					<FormControl sx={{ width: '50%' }}>
-						<InputLabel>カテゴリ</InputLabel>
-						<Select
-							required
-							name="category"
-							label="カテゴリ"
-						>
-							{categories.map(e => {
-								return (
-									<MenuItem
-										value={e.id}
-										key={e.value}
-									>
-										{e.label}
-									</MenuItem>
-								);
-							})}
-						</Select>
-					</FormControl>
+          <CategorySelectBox />
 				</Grid>
 				<Grid item xs={12}>
 					<TextField

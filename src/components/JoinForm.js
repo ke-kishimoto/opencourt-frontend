@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import CategorySelectBox from '../elements/CategorySelectBox';
 import { useState, useEffect } from "react";
 
 const JoinForm = () => {
@@ -62,25 +63,7 @@ const JoinForm = () => {
           </FormControl>
         </Grid>
         <Grid item xs={6}>
-          <FormControl sx={{ width: '50%' }}>
-            <InputLabel>カテゴリ</InputLabel>
-            <Select
-              required
-              name="category"
-              label="カテゴリ"
-            >
-              {categories.map(e => {
-                return (
-                  <MenuItem
-                    value={e.id}
-                    key={e.value}
-                  >
-                    {e.label}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
+          <CategorySelectBox />
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -130,25 +113,7 @@ const JoinForm = () => {
                 </FormControl>
               </Grid>
               <Grid item xs={4}>
-                <FormControl sx={{ width: '50%' }}>
-                  <InputLabel>カテゴリ</InputLabel>
-                  <Select
-                    required
-                    name="category"
-                    label="カテゴリ"
-                  >
-                    {categories.map(e => {
-                      return (
-                        <MenuItem
-                          value={e.id}
-                          key={e.value}
-                        >
-                          {e.label}
-                        </MenuItem>
-                      );
-                    })}
-                  </Select>
-                </FormControl>
+                <CategorySelectBox />
               </Grid>
             </>
           )
