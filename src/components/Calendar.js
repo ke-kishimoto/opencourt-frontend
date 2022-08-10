@@ -1,4 +1,5 @@
 import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -8,6 +9,8 @@ import styled from 'styled-components';
 import Box from '@mui/material/Box';
 import EventInfoItem from '../components/EventInfoItem'
 import { useNavigate } from 'react-router-dom';
+import { getStatusColorCode, } from '../utils/colorUtil';
+import StatusColorGuide from '../components/StatusColorGuide';
 
 // カレンダーの2次元配列を作成
 const createCalendar = (year, month) => {
@@ -75,9 +78,11 @@ const Calendar = () => {
   useEffect(() => {
     setDays(createCalendar(year, month));
     setEvents([
-      { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール' },
-      { id: 2, day: 1, short_name: 'サッカー', event_name: 'サッカー' },
-      { id: 3, day: 2, short_name: '野球', event_name: '野球' },
+      { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 1 },
+      { id: 2, day: 1, short_name: 'サッカー', event_name: 'サッカー', status: 2 },
+      { id: 3, day: 2, short_name: '野球', event_name: '野球', status: 3 },
+      { id: 4, day: 3, short_name: '野球', event_name: '野球', status: 4 },
+      { id: 5, day: 3, short_name: '野球', event_name: '野球', status: 5 },
     ])
   }, [year, month])
 
@@ -85,6 +90,7 @@ const Calendar = () => {
     <Grid container spacing={5} marginTop={5}>
       <Grid item xs={1}>
         <ArrowBackIosIcon
+          cursor={'pointer'}
           onClick={() => {
             setYear(month === 0 ? year - 1 : year);
             setMonth(month === 0 ? 11 : month - 1);
@@ -93,6 +99,7 @@ const Calendar = () => {
       </Grid>
       <Grid item xs={1}>
         <ArrowForwardIosIcon
+          cursor={'pointer'}
           onClick={() => {
             setYear(month === 11 ? year + 1 : year);
             setMonth(month === 11 ? 0 : month + 1);
@@ -100,16 +107,24 @@ const Calendar = () => {
         />
       </Grid>
       <Grid item xs={4}>
-        <Typography textAlign={'right'}>{year}年</Typography>
+        <Typography variant="h5" textAlign={'right'}>{year}年</Typography>
       </Grid>
       <Grid item xs={4}>
-        <Typography textAlign={'left'}>{month + 1}月</Typography>
+        <Typography variant="h5" textAlign={'left'}>{month + 1}月</Typography>
       </Grid>
       <Grid item xs={1}>
-        月
-		  	</Grid>
+        <Button
+        variant="outlined"
+        >
+          月
+        </Button>
+		  </Grid>
       <Grid item xs={1}>
-        週
+      <Button
+        variant="outlined"
+        >
+          週
+        </Button>
 				</Grid>
       <Grid item xs={12}>
         <Table>
@@ -136,7 +151,7 @@ const Calendar = () => {
                         {events.filter(e => e.day === day).map(ev => {
                           return (
                             <Box
-                              bgcolor={'#0C9'}
+                              bgcolor={getStatusColorCode(ev.status)}
                               sx={{
                                 margin: 1,
                                 paddingLeft: 1,
@@ -164,70 +179,7 @@ const Calendar = () => {
           </tbody>
         </Table >
       </Grid >
-      <Grid item xs={1.5}>
-        <Typography>参加状況</Typography>
-      </Grid>
-      <Grid item xs={1.5}>
-        <Box
-          bgcolor={'#007bff'}
-          sx={{
-            paddingLeft: 1,
-            color: '#FFF',
-            fontWeight: 700,
-            borderRadius: 1
-          }}
-        >
-          参加登録済み
-					</Box>
-      </Grid>
-      <Grid item xs={2.5}>
-        <Box
-          bgcolor={'#DE5021'}
-          sx={{
-            paddingLeft: 1,
-            color: '#FFF',
-            fontWeight: 700,
-            borderRadius: 1
-          }}
-        >登録済(キャンセル待ち)
-						</Box>
-      </Grid>
-      <Grid item xs={1.2}>
-        <Typography>空き状況</Typography>
-      </Grid>
-      <Grid item xs={1.5}>
-        <Box
-          bgcolor={'#0C9'}
-          sx={{
-            paddingLeft: 1,
-            color: '#FFF',
-            fontWeight: 700,
-            borderRadius: 1
-          }}
-        >空きあり</Box>
-      </Grid>
-      <Grid item xs={1.5}>
-        <Box
-          bgcolor={'#FFCC33'}
-          sx={{
-            paddingLeft: 1,
-            color: '#FFF',
-            fontWeight: 700,
-            borderRadius: 1
-          }}
-        >残り僅か</Box>
-      </Grid>
-      <Grid item xs={2}>
-        <Box
-          bgcolor={'#FF367F'}
-          sx={{
-            paddingLeft: 1,
-            color: '#FFF',
-            fontWeight: 700,
-            borderRadius: 1
-          }}
-        >キャンセル待ち</Box>
-      </Grid>
+      <StatusColorGuide />
       {events.map(e => {
         return (
           <Grid item xs={12}>
