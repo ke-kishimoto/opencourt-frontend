@@ -3,8 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import CategorySelectBox from '../elements/CategorySelectBox';
-import GenderSelectBox from '../elements/GenderSelectBox';
+import BasicUserForm from '../forms/BasicUserForm';
 
 const UserForm = () => {
 
@@ -15,25 +14,13 @@ const UserForm = () => {
 				<Grid item xs={12}>
 					<Avatar>U</Avatar>
 				</Grid>
+        <BasicUserForm />
 				<Grid item xs={12}>
 					<TextField
 						fullWidth
 						label="メールアドレス"
 						variant="outlined"
 					/>
-				</Grid>
-				<Grid item xs={12}>
-					<TextField
-						fullWidth
-						label="名前"
-						variant="outlined"
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<GenderSelectBox />
-				</Grid>
-				<Grid item xs={12}>
-          <CategorySelectBox />
 				</Grid>
 				<Grid item xs={12}>
 					<TextField

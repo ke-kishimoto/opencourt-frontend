@@ -11,7 +11,7 @@ const GenderSelectBox = () => {
   ]
 
   return (
-    <FormControl sx={{ width: '50%' }}>
+    <FormControl fullWidth>
       <InputLabel>性別</InputLabel>
       <Select
         required

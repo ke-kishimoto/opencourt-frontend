@@ -22,6 +22,15 @@ const EventDetail = () => {
           sx={{
             m: 3
           }}
+          onClick={() => { }}
+        >
+          参加者一覧
+          </Button>
+        <Button
+          variant="outlined"
+          sx={{
+            m: 3
+          }}
           onClick={() => { navigate('joinForm') }}
         >
           参加申し込み
@@ -41,7 +50,7 @@ const EventDetail = () => {
           sx={{
             m: 3
           }}
-          onClick={() => {  }}
+          onClick={() => { }}
         >
           修正
           </Button>
@@ -55,7 +64,7 @@ const EventDetail = () => {
           売上入力
           </Button>
       </Box>
-      <hr/>
+      <hr />
       <Outlet />
     </Container>
   )

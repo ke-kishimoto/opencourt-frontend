@@ -12,7 +12,7 @@ const CategorySelectBox = () => {
   ]
 
   return (
-    <FormControl sx={{ width: '50%' }}>
+    <FormControl fullWidth>
       <InputLabel>カテゴリ</InputLabel>
       <Select
         required

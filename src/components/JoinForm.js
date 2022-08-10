@@ -3,9 +3,8 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import CategorySelectBox from '../elements/CategorySelectBox';
-import GenderSelectBox from '../elements/GenderSelectBox';
 import { useState, useEffect } from "react";
+import BasicUserForm from '../forms/BasicUserForm';
 
 const JoinForm = () => {
 
@@ -20,19 +19,7 @@ const JoinForm = () => {
         <Grid item xs={12}>
           <Typography>参加フォーム</Typography>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            label="名前"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <GenderSelectBox />
-        </Grid>
-        <Grid item xs={6}>
-          <CategorySelectBox />
-        </Grid>
+        <BasicUserForm />
         <Grid item xs={12}>
           <TextField
             fullWidth
@@ -51,21 +38,7 @@ const JoinForm = () => {
         </Grid>
         {companions.map(e => {
           return (
-            <>
-              <Grid item xs={4}>
-                <TextField
-                  fullWidth
-                  label="名前"
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <GenderSelectBox />      
-              </Grid>
-              <Grid item xs={4}>
-                <CategorySelectBox />
-              </Grid>
-            </>
+            <BasicUserForm />
           )
         })}
         <Grid item xs={12}>
