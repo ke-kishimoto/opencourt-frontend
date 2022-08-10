@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const JoinCancel = () => {
+const JoinCancelForm = () => {
   return (
     <Box>
 			<Grid container spacing={5}>
@@ -31,4 +31,4 @@ const JoinCancel = () => {
   )
 }
 
-export default JoinCancel;
+export default JoinCancelForm;

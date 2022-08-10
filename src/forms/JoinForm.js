@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from "react";
-import BasicUserForm from '../forms/BasicUserForm';
+import BasicUserForm from './BasicUserForm';
 
 const JoinForm = () => {
 
@@ -41,12 +41,21 @@ const JoinForm = () => {
             <BasicUserForm />
           )
         })}
-        <Grid item xs={12}>
+        <Grid item xs={2}>
           <Button
             variant="outlined"
             onClick={() => {setCompanions(companions.concat(companion))}}
           >
             同伴者追加
+						</Button>
+        </Grid>
+        <Grid item xs={2}>
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={() => {setCompanions(companions.slice(0,-1))}}
+          >
+            同伴者削除
 						</Button>
         </Grid>
         <Grid item xs={12}>
