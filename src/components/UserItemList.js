@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
-import BasicUserItem from '../components/BasicUserItem';
+import UserItem from '../components/UserItem';
 
-const BasicUserList = () => {
+const UserItemList = () => {
 
   const [users, setUsers] = useState([]);
-  const { id } = useParams();
 
   useEffect(() => {
     setUsers([
@@ -14,17 +12,15 @@ const BasicUserList = () => {
       {id:1, name: 'CCC', gender_name: '男性', category_name: '高校生'},
     ])
   }, [])
-
   return (
     <>
-    {users.map(e => {
+     {users.map(e => {
       return (
-        <BasicUserItem user={e} />
+        <UserItem user={e} />
       )
     })}
     </>
   )
-
 }
 
-export default BasicUserList;
+export default UserItemList;

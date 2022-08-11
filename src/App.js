@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import NewUser from './pages/NewUser';
 import PasswordForget from './pages/PasswordForget';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import UserList from './pages/UserList';
+import UserManagement from './pages/UserManagement';
 import UserDetail from './pages/UserDetail';
 import TemplateManagement from './pages/TemplateManagement';
 import EventDetail from './pages/EventDetail';
@@ -30,7 +30,7 @@ function App() {
           <Route path="/newUser" element={<NewUser />}></Route>
           <Route path="/passwordForget" element={<PasswordForget />}></Route>
           <Route path="/privacyPolicy" element={<PrivacyPolicy />}></Route>
-          <Route path="/userList" element={<UserList/>}></Route>
+          <Route path="/userManagement" element={<UserManagement/>}></Route>
           <Route path="/userDetail" element={<UserDetail/>}></Route>
           <Route path="/templateManagement" element={<TemplateManagement/>}></Route>
           <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>

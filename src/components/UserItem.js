@@ -11,7 +11,6 @@ const UserItem = () => {
 	return (
 		<Box sx={{ p: 2, m: 2 ,
 			border: '1px solid grey',
-			width: '50%',
 			borderRadius: '5px',
 			'&:hover': {
 				backgroundColor: '#EEE',
