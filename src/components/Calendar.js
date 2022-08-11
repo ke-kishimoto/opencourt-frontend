@@ -78,11 +78,13 @@ const Calendar = () => {
   useEffect(() => {
     setDays(createCalendar(year, month));
     setEvents([
-      { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 1 },
-      { id: 2, day: 1, short_name: 'サッカー', event_name: 'サッカー', status: 2 },
-      { id: 3, day: 2, short_name: '野球', event_name: '野球', status: 3 },
-      { id: 4, day: 3, short_name: '野球', event_name: '野球', status: 4 },
-      { id: 5, day: 3, short_name: '野球', event_name: '野球', status: 5 },
+      { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
+      { id: 2, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
+      { id: 3, day: 2, short_name: 'バスケ', event_name: 'バスケットボール', status: 1 },
+      { id: 4, day: 3, short_name: 'サッカー', event_name: 'サッカー', status: 2 },
+      { id: 5, day: 3, short_name: '野球', event_name: '野球', status: 3 },
+      { id: 6, day: 4, short_name: '野球', event_name: '野球', status: 4 },
+      { id: 7, day: 4, short_name: '野球', event_name: '野球', status: 5 },
     ])
   }, [year, month])
 

@@ -1,19 +1,16 @@
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import {COLOR_STATUS_PARTICIPATED, 
   COLOR_STATUS_PARTICIPATED_WAITING, 
   COLOR_STATUS_AFFORD,
   COLOR_STATUS_FEW,
   COLOR_STATUS_WAITING,
+  COLOR_STATUS_END,
   getStatusColorCode,} from '../utils/colorUtil';
 
 const StatusColorGuide = () => {
   return (
     <>
-    <Grid item xs={1.5}>
-        <Typography>参加状況</Typography>
-      </Grid>
       <Grid item xs={1.5}>
         <Box
           bgcolor={getStatusColorCode(COLOR_STATUS_PARTICIPATED)}
@@ -38,9 +35,6 @@ const StatusColorGuide = () => {
           }}
         >登録済(キャンセル待ち)
 						</Box>
-      </Grid>
-      <Grid item xs={1.2}>
-        <Typography>空き状況</Typography>
       </Grid>
       <Grid item xs={1.5}>
         <Box
@@ -74,6 +68,17 @@ const StatusColorGuide = () => {
             borderRadius: 1
           }}
         >キャンセル待ち</Box>
+      </Grid>
+      <Grid item xs={1.5}>
+        <Box
+          bgcolor={getStatusColorCode(COLOR_STATUS_END)}
+          sx={{
+            paddingLeft: 1,
+            color: '#FFF',
+            fontWeight: 700,
+            borderRadius: 1
+          }}
+        >終了</Box>
       </Grid>
     </>
   )
