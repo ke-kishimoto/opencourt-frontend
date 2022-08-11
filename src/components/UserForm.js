@@ -8,7 +8,7 @@ import BasicUserForm from '../forms/BasicUserForm';
 const UserForm = () => {
 
 	return (
-		<Container maxWidth={'md'}>
+		<Container maxWidth={'lg'}>
 
 			<Grid container spacing={5} margin={1}>
 				<Grid item xs={12}>

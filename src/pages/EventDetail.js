@@ -45,6 +45,15 @@ const EventDetail = () => {
         >
           参加キャンセル
           </Button>
+          <Button
+          variant="outlined"
+          sx={{
+            m: 3
+          }}
+          onClick={() => { }}
+        >
+          ユーザー追加
+          </Button>
         <Button
           variant="outlined"
           sx={{

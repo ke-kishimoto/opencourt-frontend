@@ -1,14 +1,27 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
+import { getStatusColorCode, } from '../utils/colorUtil';
 
 const EventDetailItem = () => {
+
+  const [eventInfo, setEventInfo] = useState({});
+  const { id } = useParams();
+  
+  useEffect(() => {
+    setEventInfo({
+      status: 1,
+    })
+  }, [])
+
 	return (
 		<Box
 		sx={{
       p: 2,
       marginTop: 2,
-			border: 'solid 1px #0C9',
+			border: `solid 1px ${getStatusColorCode(eventInfo.status)}`,
 			borderRadius: 3,
 			
 		}}
