@@ -22,7 +22,7 @@ const EventDetail = () => {
           sx={{
             m: 3
           }}
-          onClick={() => { }}
+          onClick={() => { navigate('userList') }}
         >
           参加者一覧
           </Button>

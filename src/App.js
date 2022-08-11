@@ -17,6 +17,7 @@ import SegmentDelivery from './pages/SegmentDelivery';
 import EventSales from './components/EventSales';
 import JoinCancelForm from './forms/JoinCancelForm';
 import JoinForm from './forms/JoinForm';
+import BasicUserList from './components/BasicUserList';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="eventSales" element={<EventSales/>}></Route>
             <Route path="joinCancel" element={<JoinCancelForm/>}></Route>
             <Route path="joinForm" element={<JoinForm/>}></Route>
+            <Route path="userList" element={<BasicUserList/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
