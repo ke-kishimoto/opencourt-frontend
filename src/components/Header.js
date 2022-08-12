@@ -100,13 +100,20 @@ const Header = () => {
 					セグメント配信
 				</MenuItem>
 				<MenuItem>売上管理</MenuItem>
-				<MenuItem>問い合わせ管理</MenuItem>
+				<MenuItem
+					onClick={() => navigate('/inquiryManagement')}
+        >
+          問い合わせ管理
+        </MenuItem>
 				<MenuItem>お知らせ管理</MenuItem>
 				<MenuItem>システム設定</MenuItem>
 				<MenuItem>参加イベント一覧</MenuItem>
 				<MenuItem>一括申し込み</MenuItem>
-				<MenuItem>問い合わせ</MenuItem>
-				<MenuItem>障害報告</MenuItem>
+				<MenuItem
+          onClick={() => navigate('/inquiry')}
+        >
+          問い合わせ
+        </MenuItem>
 				<MenuItem>ログアウト</MenuItem>
 			</Menu>
 		</>
