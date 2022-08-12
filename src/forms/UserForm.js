@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import BasicUserForm from '../forms/BasicUserForm';
+import BasicUserForm from './BasicUserForm';
 
 const UserForm = () => {
 

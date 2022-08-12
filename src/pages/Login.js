@@ -1,4 +1,4 @@
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../forms/LoginForm';
 import Grid from '@mui/material/Grid';
 import { Link } from "react-router-dom";
 

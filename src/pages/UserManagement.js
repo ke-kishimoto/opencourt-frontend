@@ -1,5 +1,5 @@
 import Container from '@mui/material/Container';
-import SearchForm from '../components/SearchForm';
+import SearchForm from '../forms/SearchForm';
 import UserItem from '../components/UserItem'
 
 const UserManagement = () => {
