@@ -7,8 +7,21 @@ import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Typography from '@mui/material/Typography';
+import { 
+  COLOR_STATUS_PARTICIPATED, 
+  COLOR_STATUS_PARTICIPATED_WAITING, 
+  COLOR_STATUS_END} from '../utils/colorUtil';
 
 const BulkReservation = () => {
+
+  const isDisabled = (status) => {
+    if(status === COLOR_STATUS_PARTICIPATED || 
+      status === COLOR_STATUS_PARTICIPATED_WAITING ||
+      status === COLOR_STATUS_END) {
+        return true;
+      }
+    return false;
+  }
 
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth());
@@ -54,11 +67,17 @@ const BulkReservation = () => {
         <Typography variant="h5" textAlign={'left'}>{month + 1}月</Typography>
       </Grid>
       <Grid item xs={2}/>
+      <Grid item xs={12}>
+        <Typography textAlign={'left'}>
+          ※過去のイベント、申し込み済みのイベントは選択できません。
+        </Typography>
+      </Grid>
       {events.map(e => {
         return (
           <>
           <Grid item xs={1}>
             <Checkbox 
+              disabled={isDisabled(e.status)}
               sx={{m:5}}
             />
           </Grid>
