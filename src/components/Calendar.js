@@ -148,7 +148,13 @@ const Calendar = () => {
                 <tr>
                   {week.map(day => {
                     return (
-                      <Td>
+                      <Td
+                        onClick={() => {
+                          if(day === '') return;
+                          navigate('/newEvent');
+                      }}
+                        style={{backgroundColor: day !== '' ? '#FFF' : '#EEE'}}
+                      >
                         {day}
                         {events.filter(e => e.day === day).map(ev => {
                           return (
@@ -157,7 +163,7 @@ const Calendar = () => {
                               sx={{
                                 margin: 1,
                                 paddingLeft: 1,
-                                color: '#FFF',
+                                color: day !== '' ? '#FFF' : '#DDD',
                                 fontWeight: 700,
                                 borderRadius: 1,
                                 cursor: 'pointer',
@@ -165,8 +171,10 @@ const Calendar = () => {
                                   opacity: '0.5',
                                 }
                               }}
-
-                              onClick={() => { navigate(`/eventDetail/${ev.id}`) }}
+                              onClick={(event) => { 
+                                event.stopPropagation()
+                                navigate(`/eventDetail/${ev.id}`) 
+                              }}
                             >
                               {ev.short_name}
                             </Box>
