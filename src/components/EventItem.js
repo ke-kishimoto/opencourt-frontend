@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { getStatusColorCode, } from '../utils/colorUtil';
 
-const EventInfoItem = (props) => {
+const EventItem = (props) => {
 
   const navigate = useNavigate();
   
@@ -44,4 +44,4 @@ const EventInfoItem = (props) => {
 	)
 }
 
-export default EventInfoItem;
+export default EventItem;

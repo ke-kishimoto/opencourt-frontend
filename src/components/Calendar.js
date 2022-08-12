@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
-import EventInfoItem from '../components/EventInfoItem'
+import EventItem from '../components/EventItem';
 import { useNavigate } from 'react-router-dom';
 import { getStatusColorCode, } from '../utils/colorUtil';
 import StatusColorGuide from '../components/StatusColorGuide';
@@ -185,7 +185,7 @@ const Calendar = () => {
       {events.map(e => {
         return (
           <Grid item xs={12}>
-            <EventInfoItem
+            <EventItem
               eventInfo={e}
             />
           </Grid>

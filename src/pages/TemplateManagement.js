@@ -28,7 +28,7 @@ const TemplateManagement = () => {
         <BasicEventForm />
 				<Grid item xs={6}>
 					<Button
-						variant="outline"
+						variant="outlined"
 					>
 						クリア
 							</Button>

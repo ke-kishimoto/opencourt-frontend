@@ -18,6 +18,8 @@ import EventSales from './components/EventSales';
 import JoinCancelForm from './forms/JoinCancelForm';
 import JoinForm from './forms/JoinForm';
 import BasicUserList from './components/BasicUserList';
+import EventManagement from './pages/EventManagement';
+import NewEvent from './pages/NewEvent';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
           <Route path="/logManagement" element={<LogManagement/>}></Route>
           <Route path="/userCategory" element={<UserCategory/>}></Route>
+          <Route path="/eventManagement" element={<EventManagement/>}></Route>
+          <Route path="/newEvent" element={<NewEvent/>}></Route>
           <Route path="/eventDetail/:id" element={<EventDetail/>}>
             <Route path="eventSales" element={<EventSales/>}></Route>
             <Route path="joinCancel" element={<JoinCancelForm/>}></Route>

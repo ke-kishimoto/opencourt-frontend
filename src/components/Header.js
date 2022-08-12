@@ -79,7 +79,11 @@ const Header = () => {
 				>
 					ユーザーカテゴリ管理
 				</MenuItem>
-				<MenuItem>イベント管理</MenuItem>
+				<MenuItem
+					onClick={() => {navigate('/eventManagement')}}
+        >
+          イベント管理
+        </MenuItem>
 				<MenuItem
 					onClick={() => navigate('/userManagement')}
 				>

@@ -1,12 +1,18 @@
 import Container from '@mui/material/Container';
 import SearchForm from '../forms/SearchForm';
-import UserItem from '../components/UserItem'
+import UserItemList from '../components/UserItemList';
+import Button from '@mui/material/Button';
 
 const UserManagement = () => {
     return (
         <Container maxWidth={'lg'}>
             <SearchForm />
-            <UserItem />
+            <Button
+  						variant="outlined"
+	  				>
+						新規登録
+            </Button>
+            <UserItemList />
         </Container>
     )
 }
