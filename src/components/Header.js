@@ -4,21 +4,21 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react'
+import UserMenu from './UserMenu'
 
 const Header = () => {
 	const navigate = useNavigate();
 
-	const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
 	const handleClose = () => {
 		setAnchorEl(null);
-	};
+  };
+  
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
-	};
+  };
 
 	return (
 		<>
@@ -56,66 +56,11 @@ const Header = () => {
 				</Grid>
 			</Grid>
 
-			<Menu
-				anchorEl={anchorEl}
-				id="account-menu"
-				open={open}
-				onClose={handleClose}
-				onClick={handleClose}
-			>
-				<MenuItem>マイページ</MenuItem>
-				<MenuItem
-					onClick={() => {navigate('/privacyPolicyManagement')}}
-				>
-					プライバシーポリシー管理
-				</MenuItem>
-				<MenuItem
-					onClick={() => {navigate('/logManagement')}}
-				>
-					ログ管理
-				</MenuItem>
-				<MenuItem
-					onClick={() => {navigate('/UserCategory')}}
-				>
-					ユーザーカテゴリ管理
-				</MenuItem>
-				<MenuItem
-					onClick={() => {navigate('/eventManagement')}}
-        >
-          イベント管理
-        </MenuItem>
-				<MenuItem
-					onClick={() => navigate('/userManagement')}
-				>
-					ユーザー管理
-			</MenuItem>
-				<MenuItem
-					onClick={() => navigate('/templateManagement')}
-				>
-					テンプレート管理
-			</MenuItem>
-				<MenuItem
-					onClick={() => navigate('/segmentDelivery')}
-				>
-					セグメント配信
-				</MenuItem>
-				<MenuItem>売上管理</MenuItem>
-				<MenuItem
-					onClick={() => navigate('/inquiryManagement')}
-        >
-          問い合わせ管理
-        </MenuItem>
-				<MenuItem>お知らせ管理</MenuItem>
-				<MenuItem>システム設定</MenuItem>
-				<MenuItem>参加イベント一覧</MenuItem>
-				<MenuItem>一括申し込み</MenuItem>
-				<MenuItem
-          onClick={() => navigate('/inquiry')}
-        >
-          問い合わせ
-        </MenuItem>
-				<MenuItem>ログアウト</MenuItem>
-			</Menu>
+      <UserMenu 
+        anchorEl={anchorEl}
+        open={open}
+        handleClose={handleClose}
+      />
 		</>
 	)
 }
