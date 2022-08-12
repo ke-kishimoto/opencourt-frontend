@@ -53,7 +53,11 @@ const UserMenu = (props) => {
     >
       セグメント配信
     </MenuItem>
-    <MenuItem>売上管理</MenuItem>
+    <MenuItem
+      onClick={() => navigate('/salesManagement/monthly')}
+    >
+      売上管理
+    </MenuItem>
     <MenuItem
       onClick={() => navigate('/inquiryManagement')}
     >

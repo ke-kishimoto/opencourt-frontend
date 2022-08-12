@@ -24,6 +24,10 @@ import NewEvent from './pages/NewEvent';
 import Inquiry from './pages/Inquiry';
 import InquiryManagement from './pages/InquiryManagement';
 import BulkReservation from './pages/BulkReservation';
+import SalesManagement from './pages/SalesManagement';
+import MonthlySalesManagement from './components/MonthlySlaesManagement';
+import YearSalesTotal from './components/YearSalesTotal';
+import AllSales from './components/AllSales';
 import MyPage from './pages/MyPage';
 
 function App() {
@@ -33,6 +37,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Top />}></Route>
+          <Route path="/index" element={<Top />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/newUser" element={<NewUser />}></Route>
@@ -56,6 +61,12 @@ function App() {
             <Route path="joinForm" element={<JoinForm/>}></Route>
             <Route path="userList" element={<BasicUserList/>}></Route>
           </Route>
+          <Route path="/salesManagement" element={<SalesManagement/>}>
+            <Route path="monthly" element={<MonthlySalesManagement/>}></Route>
+            <Route path="yearSalesTotal" element={<YearSalesTotal/>}></Route>
+            <Route path="all" element={<AllSales/>}></Route>
+          </Route>
+
         </Routes>
         <Footer />
       </BrowserRouter>
