@@ -23,6 +23,7 @@ import NewEvent from './pages/NewEvent';
 import Inquiry from './pages/Inquiry';
 import InquiryManagement from './pages/InquiryManagement';
 import BulkReservation from './pages/BulkReservation';
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Top />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/newUser" element={<NewUser />}></Route>
           <Route path="/passwordForget" element={<PasswordForget />}></Route>
           <Route path="/privacyPolicy" element={<PrivacyPolicy />}></Route>

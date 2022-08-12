@@ -13,7 +13,11 @@ const UserMenu = (props) => {
     onClose={props.handleClose}
     onClick={props.handleClose}
   >
-    <MenuItem>マイページ</MenuItem>
+    <MenuItem
+      onClick={() => {navigate('/mypage')}}
+    >
+      マイページ
+    </MenuItem>
     <MenuItem
       onClick={() => {navigate('/privacyPolicyManagement')}}
     >
