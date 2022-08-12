@@ -173,7 +173,7 @@ const Calendar = () => {
                               }}
                               onClick={(event) => { 
                                 event.stopPropagation()
-                                navigate(`/eventDetail/${ev.id}`) 
+                                navigate(`/eventDetail/${ev.id}/userList`) 
                               }}
                             >
                               {ev.short_name}

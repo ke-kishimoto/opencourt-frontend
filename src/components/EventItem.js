@@ -23,7 +23,7 @@ const EventItem = (props) => {
 				}
 			}}
 			onClick={() => {
-        navigate(`/eventDetail/${props.eventInfo.id}`)
+        navigate(`/eventDetail/${props.eventInfo.id}/userList`)
       }}
 		>
 			<Grid container spacing={1}>
