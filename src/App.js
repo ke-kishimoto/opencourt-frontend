@@ -1,6 +1,7 @@
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Top from './pages/Top';
 import Login from './pages/Login';
 import NewUser from './pages/NewUser';
@@ -56,6 +57,7 @@ function App() {
             <Route path="userList" element={<BasicUserList/>}></Route>
           </Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </RecoilRoot>
   );
