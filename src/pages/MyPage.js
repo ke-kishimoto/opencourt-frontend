@@ -1,12 +1,12 @@
 import Container from '@mui/material/Container';
 import UserDetailItem from '../components/UserDetailItem';
 
-const UserDetail = () => {
-	return (
-    <Container maxWidth={'lg'}>
+const MyPage = () => {
+  return (
+    <Container>
       <UserDetailItem />
     </Container>
-	)
+  )
 }
 
-export default UserDetail;
+export default MyPage;

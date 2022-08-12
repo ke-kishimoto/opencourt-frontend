@@ -2,7 +2,6 @@ import { Box } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
 
 const UserItem = () => {
 

@@ -22,6 +22,7 @@ import EventManagement from './pages/EventManagement';
 import NewEvent from './pages/NewEvent';
 import Inquiry from './pages/Inquiry';
 import InquiryManagement from './pages/InquiryManagement';
+import BulkReservation from './pages/BulkReservation';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/newEvent" element={<NewEvent/>}></Route>
           <Route path="/inquiry" element={<Inquiry/>}></Route>
           <Route path="/inquiryManagement" element={<InquiryManagement/>}></Route>
+          <Route path="/bulkReservation" element={<BulkReservation/>}></Route>
           <Route path="/eventDetail/:id" element={<EventDetail/>}>
             <Route path="eventSales" element={<EventSales/>}></Route>
             <Route path="joinCancel" element={<JoinCancelForm/>}></Route>

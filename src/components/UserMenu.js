@@ -57,8 +57,11 @@ const UserMenu = (props) => {
     </MenuItem>
     <MenuItem>お知らせ管理</MenuItem>
     <MenuItem>システム設定</MenuItem>
-    <MenuItem>参加イベント一覧</MenuItem>
-    <MenuItem>一括申し込み</MenuItem>
+    <MenuItem
+      onClick={() => navigate('/bulkReservation')}
+    >
+      一括申し込み
+    </MenuItem>
     <MenuItem
       onClick={() => navigate('/inquiry')}
     >
