@@ -1,10 +1,21 @@
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
-import { isLoginState } from '../states/selectors/userSelector';
+import { userState, tokenState } from '../states/atoms/userAtom';
+import { useResetRecoilState } from 'recoil';
+import { useAxios } from '../utils/axiosUtil';
 
 const UserMenu = (props) => {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
+  const axios = useAxios();
+  const resetUser = useResetRecoilState(userState);
+  const resetToken = useResetRecoilState(tokenState);
+
+  const logout = async () => {
+    await axios.post('/logout');
+    resetUser();
+    resetToken();
+  }
   
   return (
     <Menu
@@ -76,7 +87,13 @@ const UserMenu = (props) => {
     >
       問い合わせ
     </MenuItem>
-    <MenuItem>ログアウト</MenuItem>
+    <MenuItem
+      onClick={() => {
+        logout();
+      }}
+    >
+    ログアウト
+    </MenuItem>
   </Menu>
   )
 }

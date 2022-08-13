@@ -6,8 +6,12 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import TemplateSelectBox from '../elements/TemplateSelectBox';
 import BasicEventForm from '../forms/BasicEventForm';
+import { useRecoilValue } from 'recoil';
+import { getEventTemplate } from '../states/selectors/eventTemplateSelector';
 
 const TemplateManagement = () => {
+
+  const template = useRecoilValue(getEventTemplate);
 
 	return (
 		<Container maxWidth={'lg'}>
@@ -22,7 +26,8 @@ const TemplateManagement = () => {
 					<TextField
 						fullWidth
 						label="テンプレート名"
-						variant="outlined"
+            variant="outlined"
+            value={template.template_name}
 					/>
 				</Grid>
         <BasicEventForm />

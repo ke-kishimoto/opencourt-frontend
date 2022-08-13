@@ -15,8 +15,6 @@ const Header = () => {
   const isLogin = useRecoilValue(isLoginState);
   const user = useRecoilValue(getUser);
   
-  console.log(getUser)
-
   const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
 	const handleClose = () => {
