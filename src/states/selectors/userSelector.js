@@ -1,5 +1,5 @@
 import { selector } from 'recoil';
-import { userState, tokenState } from '../atoms/userAtom'
+import { userState, tokenState } from '../atoms/userAtom';
 
 const isLoginState = selector({
   key: 'isLogin',
