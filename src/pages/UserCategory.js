@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import RegisterBtn from '../elements/RegistBtn';
 import Grid from '@mui/material/Grid';
 import { useState, useEffect } from 'react';
 import { useAxios } from '../utils/axiosUtil';
@@ -39,8 +39,12 @@ const UserCategory = () => {
     )
   }
 
+  const validation = () => {
+    return true;
+  }
+
 	return (
-		<Container maxWidth={'md'}>
+		<Container maxWidth={'md'} sx={{minHeight: 650}}>
 			<Grid container spacing={2} margin={1}>
 				<Grid item xs={12}>
 					<Typography>ユーザーカテゴリ管理</Typography>
@@ -62,11 +66,12 @@ const UserCategory = () => {
         })}
 				<Grid item xs={10}/>
 				<Grid item xs={2}>
-					<Button
-						variant="contained"
-					>
-						更新
-					</Button>
+					<RegisterBtn
+            mode={'new'}
+            endpoint={'/userCategory'}
+            validation={validation}
+            data={{categories: categories}}
+					/>
 				</Grid>
 			</Grid>
 		</Container>
