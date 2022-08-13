@@ -15,6 +15,14 @@ const isLoginState = selector({
   },
 })
 
+const getUser = selector({
+  key: 'getUser',
+  get: ({get}) => {
+    const user = get(userState)
+    return user;
+  },
+})
+
 const getAccessToken = selector({
   key: 'getAccesToken',
   get: ({get}) => {
@@ -23,4 +31,4 @@ const getAccessToken = selector({
   },
 })
 
-export { isLoginState, getAccessToken }
+export { isLoginState, getAccessToken, getUser }

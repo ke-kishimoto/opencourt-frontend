@@ -2,13 +2,20 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import { useState } from 'react'
-import UserMenu from './UserMenu'
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import UserMenu from './UserMenu';
+import { isLoginState, getUser } from '../states/selectors/userSelector';
 
 const Header = () => {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
+  const isLogin = useRecoilValue(isLoginState);
+  const user = useRecoilValue(getUser);
+  
+  console.log(getUser)
 
   const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
@@ -38,24 +45,28 @@ const Header = () => {
 				<Grid item xs={8}>
 					<Link to="/">タイトル</Link>
 				</Grid>
-				<Grid item xs={1}>
-					<Button
-						variant="outlined"
-						onClick={() => { navigate('/login') }}
-					>
-						ログイン
-				</Button>
-				</Grid>
-				<Grid item xs={1}>
-					<Button
-						variant="outlined"
-						onClick={() => { navigate('/newUser') }}
-					>
-						新規登録
-				</Button>
-				</Grid>
+        {!isLogin ? 
+        <>
+          <Grid item xs={1}>
+            <Button
+              variant="outlined"
+              onClick={() => { navigate('/login') }}
+            >
+              ログイン
+          </Button>
+          </Grid>
+          <Grid item xs={1}>
+            <Button
+              variant="outlined"
+              onClick={() => { navigate('/newUser') }}
+            >
+              新規登録
+          </Button>
+          </Grid>
+        </>
+        :<Typography>{user.name}</Typography>}
+				
 			</Grid>
-
       <UserMenu 
         anchorEl={anchorEl}
         open={open}
