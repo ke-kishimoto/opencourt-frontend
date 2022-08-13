@@ -11,7 +11,7 @@ import {COLOR_STATUS_PARTICIPATED,
 const StatusColorGuide = () => {
   return (
     <>
-      <Grid item xs={1.5}>
+      <Grid item xs={12} sm={1.5}>
         <Box
           bgcolor={getStatusColorCode(COLOR_STATUS_PARTICIPATED)}
           sx={{
@@ -24,7 +24,7 @@ const StatusColorGuide = () => {
           参加登録済み
 					</Box>
       </Grid>
-      <Grid item xs={2.5}>
+      <Grid item xs={12} sm={2.5}>
         <Box
           bgcolor={getStatusColorCode(COLOR_STATUS_PARTICIPATED_WAITING)}
           sx={{
@@ -36,7 +36,7 @@ const StatusColorGuide = () => {
         >登録済(キャンセル待ち)
 						</Box>
       </Grid>
-      <Grid item xs={1.5}>
+      <Grid item xs={12} sm={1.5}>
         <Box
           bgcolor={getStatusColorCode(COLOR_STATUS_AFFORD)}
           sx={{
@@ -47,7 +47,7 @@ const StatusColorGuide = () => {
           }}
         >空きあり</Box>
       </Grid>
-      <Grid item xs={1.5}>
+      <Grid item xs={12} sm={1.5}>
         <Box
           bgcolor={getStatusColorCode(COLOR_STATUS_FEW)}
           sx={{
@@ -58,7 +58,7 @@ const StatusColorGuide = () => {
           }}
         >残り僅か</Box>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={2}>
         <Box
           bgcolor={getStatusColorCode(COLOR_STATUS_WAITING)}
           sx={{
@@ -69,7 +69,7 @@ const StatusColorGuide = () => {
           }}
         >キャンセル待ち</Box>
       </Grid>
-      <Grid item xs={1.5}>
+      <Grid item xs={12} sm={1.5}>
         <Box
           bgcolor={getStatusColorCode(COLOR_STATUS_END)}
           sx={{
