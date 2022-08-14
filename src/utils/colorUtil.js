@@ -27,7 +27,7 @@ const getStatusColorCode = (status) => {
     case COLOR_STATUS_END:
       return COLOR_CODE_END;
     default:
-      return '#FFF';
+      return '#000';
   }
 }
 

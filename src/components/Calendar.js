@@ -11,6 +11,7 @@ import EventItem from '../components/EventItem';
 import { useNavigate } from 'react-router-dom';
 import { getStatusColorCode, } from '../utils/colorUtil';
 import StatusColorGuide from '../components/StatusColorGuide';
+import { useAxios } from '../utils/axiosUtil';
 
 // カレンダーの2次元配列を作成
 const createCalendar = (year, month) => {
@@ -69,6 +70,7 @@ const Td = styled.td`
 
 const Calendar = () => {
 
+  const axios = useAxios();
   const navigate = useNavigate();
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth());
@@ -77,15 +79,23 @@ const Calendar = () => {
 
   useEffect(() => {
     setDays(createCalendar(year, month));
-    setEvents([
-      { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
-      { id: 2, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
-      { id: 3, day: 2, short_name: 'バスケ', event_name: 'バスケットボール', status: 1 },
-      { id: 4, day: 3, short_name: 'サッカー', event_name: 'サッカー', status: 2 },
-      { id: 5, day: 3, short_name: '野球', event_name: '野球', status: 3 },
-      { id: 6, day: 4, short_name: '野球', event_name: '野球', status: 4 },
-      { id: 7, day: 4, short_name: '野球', event_name: '野球', status: 5 },
-    ])
+
+    const fetchData = async () => {
+      const result = await axios.get('/getEventByMonth/' + year + '/' + String((month + 1)).padStart(2, '0'));
+      setEvents(result.data)
+      console.log(result.data)
+    }
+    fetchData();
+
+    // setEvents([
+    //   { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
+    //   { id: 2, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
+    //   { id: 3, day: 2, short_name: 'バスケ', event_name: 'バスケットボール', status: 1 },
+    //   { id: 4, day: 3, short_name: 'サッカー', event_name: 'サッカー', status: 2 },
+    //   { id: 5, day: 3, short_name: '野球', event_name: '野球', status: 3 },
+    //   { id: 6, day: 4, short_name: '野球', event_name: '野球', status: 4 },
+    //   { id: 7, day: 4, short_name: '野球', event_name: '野球', status: 5 },
+    // ])
   }, [year, month])
 
   return (
@@ -156,7 +166,8 @@ const Calendar = () => {
                         style={{backgroundColor: day !== '' ? '#FFF' : '#EEE'}}
                       >
                         {day}
-                        {events.filter(e => e.day === day).map(ev => {
+                        {events.filter(e => Number(e.day) == day).map(ev => {
+                          console.log(ev)
                           return (
                             <Box
                               bgcolor={getStatusColorCode(ev.status)}
@@ -176,7 +187,7 @@ const Calendar = () => {
                                 navigate(`/eventDetail/${ev.id}/userList`) 
                               }}
                             >
-                              {ev.short_name}
+                              {ev.short_title}
                             </Box>
                           )
                         })}
