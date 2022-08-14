@@ -23,10 +23,11 @@ const CategorySelectBox = (props) => {
       <InputLabel>カテゴリ</InputLabel>
       <Select
         required
-        name="category"
+        name={'category' + props.index}
         label="カテゴリ"
         disabled={props.disabled}
         defaultValue={props.value}
+        onChange={props.handleChange}
       >
         {categories.map(e => {
           return (

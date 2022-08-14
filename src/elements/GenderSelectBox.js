@@ -9,7 +9,7 @@ const GenderSelectBox = (props) => {
   const gender = [
     { label: '男性', value: '1' },
     { label: '女性', value: '2' },
-    { label: '女性', value: '3' },
+    { label: 'その他', value: '3' },
   ]
 
   return (
@@ -17,10 +17,11 @@ const GenderSelectBox = (props) => {
       <InputLabel>性別</InputLabel>
       <Select
         required
-        name="gender"
+        name={'gender' + props.index}
         label="性別"
         disabled={props.disabled}
         defaultValue={props.value}
+        onChange={props.handleChange}
       >
         {gender.map(e => {
           return (

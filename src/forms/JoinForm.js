@@ -5,23 +5,42 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from "react";
 import BasicUserForm from './BasicUserForm';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { getUser } from '../states/selectors/userSelector';
+import { companionsState } from '../states/atoms/companionsAtom';
 import RegiterBtn from '../elements/RegistBtn';
 import { useParams } from "react-router-dom";
 
 const JoinForm = () => {
 
   const { id } = useParams();
-  const [companions, setCompanions] = useState([]);
+  // const [companions, setCompanions] = useState([]);
   const [remark, setRemark] = useState('');
   const user = useRecoilValue(getUser);
+  const companions = useRecoilValue(companionsState);
+  const setCompanions = useSetRecoilState(companionsState);
+
   const companion = {
     name: '', gender: '', category: '',
   };
 
   const validation = () => {
     return true;
+  }
+
+  const handleChangeCompanion = (event) => {
+    const { name, value } = event.target;
+    const index = Number(name.substring(name.length - 1));
+    const key = name.slice(0, -1);
+    setCompanions(
+      companions.map((c, i) => {
+        if(index !== i) {
+          return c;
+        } else {
+          return {...c, [key]: value};
+        } 
+      })
+    )
   }
 
   return (
@@ -53,11 +72,13 @@ const JoinForm = () => {
             onChange={(e) => {setRemark(e.target.value)}}
           />
         </Grid>
-        {companions.map(e => {
+        {companions.map((e, index) => {
           return (
             <BasicUserForm 
               disabled={false}
+              index={index}
               user={{}}
+              handleChange={handleChangeCompanion}
             />
           )
         })}
@@ -87,6 +108,7 @@ const JoinForm = () => {
               event_id: id,
               user_id: user.id,
               remark: remark,
+              companions: companions,
             }}
           />
         </Grid>
