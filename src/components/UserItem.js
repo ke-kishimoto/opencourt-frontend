@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 import { useNavigate } from 'react-router-dom';
 
-const UserItem = () => {
+const UserItem = (props) => {
 
 	const navigate = useNavigate();
 
@@ -17,32 +17,32 @@ const UserItem = () => {
 			},}}
 			onClick={() => {navigate('/userDetail')}}
 		>
-			<Grid container>
+			<Grid container spacing={1}>
 				<Grid item xs={1}>
-					<Avatar>U</Avatar>
+					<Avatar>{props.user.name.substr(0,1)}</Avatar>
 				</Grid>
 				<Grid item xs={2}>
-					名前
+					{props.user.name}
 				</Grid>
 				<Grid item xs={2}>
-					男性
+					{props.user.gender_name}
 				</Grid>
 				<Grid item xs={2}>
-					社会人
+					{props.user.user_category.category_name}
 				</Grid>
 				<Grid item xs={5}/>
 			
-				<Grid item xs={1}>
-					xxxxx@gmail.com
+				<Grid item xs={3}>
+					{props.user.email}
 				</Grid>
-				<Grid item xs={9}/>
+				<Grid item xs={7}/>
 
 				<Grid item xs={1}/>
 				<Grid item xs={2}>
-					ステータス：有効
+					ステータス：{props.user.status_name}
 				</Grid>
 				<Grid item xs={2}>
-					権限：一般ユーザー
+					権限：{props.user.role_name}
 				</Grid>
 			</Grid>
 		</Box>		
