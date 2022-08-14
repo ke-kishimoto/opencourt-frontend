@@ -7,7 +7,7 @@ import { useAxios } from '../utils/axiosUtil';
 import { useSetRecoilState } from 'recoil';
 import { eventTemplateState } from "../states/atoms/eventTemplateAtom";
 
-const TemplateSelectBox = () => {
+const TemplateSelectBox = (props) => {
 
   const [templates, setTemplates] = useState([]);
   const axios = useAxios();
@@ -28,11 +28,11 @@ const TemplateSelectBox = () => {
   }
 
   return (
-    <FormControl sx={{ width: '50%' }}>
+    <FormControl fullWidth>
       <InputLabel>テンプレート</InputLabel>
       <Select
         required
-        name="template"
+        name={props.name}
         label="テンプレート"
         onChange={(e) => getTemplate(e.target.value)}
       >

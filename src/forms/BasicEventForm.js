@@ -4,21 +4,37 @@ import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { getEventTemplate } from '../states/selectors/eventTemplateSelector';
+import { useAxios } from '../utils/axiosUtil';
+import { useSetRecoilState } from 'recoil';
+import { eventBaseState } from "../states/atoms/eventAtom";
+import { getEventBase } from '../states/selectors/eventSelector';
 
 const BasicEventForm = () => {
 
+  const axios = useAxios();
   const [categories, setCategories] = useState([]);
   const template = useRecoilValue(getEventTemplate);
+  const setEventBase =  useSetRecoilState(eventBaseState);
+  const eventBase = useRecoilValue(getEventBase);
 
-  useState(() => {
-    setCategories([
-      {id: 1, name: '社会人'},
-      {id: 2, name: '大学生'},
-      {id: 3, name: '高校生'},
-      {id: 4, name: 'カテゴリ4'},
-      {id: 5, name: 'カテゴリ5'},
-    ])
-  }, [])
+  useEffect(() => {
+    const fetchDate = async () => {
+      const result = await axios.get('/userCategory');
+      setCategories(result.data.filter(e => e.category_name !== ''));
+    };
+    fetchDate();
+  }, []);
+
+  useEffect(() => {
+    setEventBase(template)
+  }, [template])
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setEventBase(
+      { ...eventBase, [name]: value }
+    )
+  }
 
   return (
     <>
@@ -26,24 +42,30 @@ const BasicEventForm = () => {
         <TextField
           fullWidth
           label="イベント名"
+          name="title"
           variant="outlined"
-          value={template.title}
+          value={eventBase.title}
+          onChange={handleChange}
         />
       </Grid>
       <Grid item xs={12}>
         <TextField
           fullWidth
           label="イベント名略称"
+          name="short_title"
           variant="outlined"
-          value={template.short_title}
+          value={eventBase.short_title}
+          onChange={handleChange}
         />
       </Grid>
       <Grid item xs={12}>
         <TextField
           fullWidth
           label="開催場所"
+          name="place"
           variant="outlined"
-          value={template.place}
+          value={eventBase.place}
+          onChange={handleChange}
         />
       </Grid>
       <Grid item xs={12}>
@@ -51,8 +73,10 @@ const BasicEventForm = () => {
           fullWidth
           type="number"
           label="人数"
+          name="limit_number"
           variant="outlined"
-          value={template.limit_number}
+          value={eventBase.limit_number}
+          onChange={handleChange}
         />
       </Grid>
       <Grid item xs={12}>
@@ -61,7 +85,10 @@ const BasicEventForm = () => {
           multiline
           rows={4}
           label="詳細"
+          name="description"
           variant="outlined"
+          value={eventBase.description}
+          onChange={handleChange}
         />
       </Grid>
       <Grid item xs={12}>
@@ -73,9 +100,11 @@ const BasicEventForm = () => {
             <TextField
               fullWidth
               type="number"
-              label={e.name}
+              label={e.category_name}
+              name={'price' + (index + 1)}
               variant="outlined"
-              value={template['price' + (index + 1)]}
+              value={eventBase['price' + (index + 1)]}
+              onChange={handleChange}
             />
           </Grid>
         )
