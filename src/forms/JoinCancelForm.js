@@ -1,8 +1,8 @@
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import JoinCancelBtn from '../elements/JoinCancelBtn';
 
 const JoinCancelForm = () => {
   return (
@@ -20,11 +20,7 @@ const JoinCancelForm = () => {
         </Grid>
 				<Grid item xs={10}/>
 				<Grid item xs={2}>
-        <Button
-						variant="contained"
-						>
-						送信
-					</Button>
+        <JoinCancelBtn />
         </Grid>
       </Grid>
     </Box>
