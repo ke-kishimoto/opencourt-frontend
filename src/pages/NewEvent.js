@@ -38,8 +38,6 @@ const NewEvent = () => {
               name="event_date"
               value={eventDate}
               onChange={(value) => {
-                console.log(typeof(value))
-                console.log((value))
                 setEventDate(value)
               }}
               renderInput={(params) => <TextField {...params} />}

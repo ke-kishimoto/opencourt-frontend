@@ -13,7 +13,6 @@ const UserManagement = () => {
   useEffect(() => {
     const fetchDate = async () => {
       const result = await axios.get('/getUserList');
-      console.log(result.data)
       setUsers(result.data);
     }
     fetchDate();

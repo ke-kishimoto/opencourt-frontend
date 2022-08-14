@@ -13,7 +13,6 @@ const BasicUserList = () => {
 
     const fetchData = async () => {
       const result = await axios.get('/getEventUser/' + id)
-      console.log(result.data)
       setUsers(result.data);
     }
     fetchData();

@@ -83,7 +83,6 @@ const Calendar = () => {
     const fetchData = async () => {
       const result = await axios.get('/getEventByMonth/' + year + '/' + String((month + 1)).padStart(2, '0'));
       setEvents(result.data)
-      console.log(result.data)
     }
     fetchData();
 
@@ -167,7 +166,6 @@ const Calendar = () => {
                       >
                         {day}
                         {events.filter(e => Number(e.day) == day).map(ev => {
-                          console.log(ev)
                           return (
                             <Box
                               bgcolor={getStatusColorCode(ev.status)}
