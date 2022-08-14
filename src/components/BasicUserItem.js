@@ -22,7 +22,7 @@ const BasicUserItem = (props) => {
           {props.user.gender_name}
         </Grid>
         <Grid item xs={2}>
-          {props.user.category_name}
+          {props.user.user_category.category_name}
         </Grid>
         <Grid item xs={5}/>
       </Grid>
