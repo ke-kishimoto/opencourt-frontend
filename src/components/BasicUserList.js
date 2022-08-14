@@ -23,19 +23,21 @@ const BasicUserList = () => {
   return (
     <>
     {users.map(e => {
-      console.log(e)
       return (
-        <>
+        <div
+          key={e.id}
+        >
           <BasicUserItem user={e.user} />
           {e.companions.map((c, index) => {
             return (
               <BasicCompanionItem 
+                key={index}
                 companion={c}
                 index={index}
               />
             )
           })}
-        </>
+        </div>
       )
     })}
     </>

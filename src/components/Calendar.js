@@ -152,12 +152,15 @@ const Calendar = () => {
           </thead>
 
           <tbody>
-            {days.map(week => {
+            {days.map((week, index) => {
               return (
-                <tr>
-                  {week.map(day => {
+                <tr
+                  key={index}
+                >
+                  {week.map((day, index) => {
                     return (
                       <Td
+                        key={index}
                         onClick={() => {
                           if(day === '') return;
                           navigate('/newEvent');
@@ -168,6 +171,7 @@ const Calendar = () => {
                         {events.filter(e => Number(e.day) == day).map(ev => {
                           return (
                             <Box
+                              key={ev.id}
                               bgcolor={getStatusColorCode(ev.status)}
                               sx={{
                                 margin: 1,
@@ -201,7 +205,9 @@ const Calendar = () => {
       <StatusColorGuide />
       {events.map(e => {
         return (
-          <Grid item xs={12}>
+          <Grid item xs={12}
+          key={e.id}
+          >
             <EventItem
               event={e}
             />

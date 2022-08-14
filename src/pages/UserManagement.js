@@ -28,7 +28,10 @@ const UserManagement = () => {
       </Button>
       {users.map(e => {
       return (
-        <UserItem user={e} />
+        <UserItem 
+          key={e.id}
+          user={e} 
+        />
       )
     })}
     </Container>

@@ -96,7 +96,9 @@ const BasicEventForm = () => {
       </Grid>
       {categories.map((e, index) => {
         return (
-          <Grid item xs={4}>
+          <Grid item xs={4}
+            key={e.id}
+          >
             <TextField
               fullWidth
               type="number"
