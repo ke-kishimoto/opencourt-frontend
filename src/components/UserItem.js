@@ -15,7 +15,7 @@ const UserItem = (props) => {
 				backgroundColor: '#EEE',
 				cursor: 'pointer',
 			},}}
-			onClick={() => {navigate('/userDetail')}}
+			onClick={() => {navigate('/userDetail/' + props.user.id)}}
 		>
 			<Grid container spacing={1}>
 				<Grid item xs={1}>

@@ -44,7 +44,7 @@ function App() {
           <Route path="/passwordForget" element={<PasswordForget />}></Route>
           <Route path="/privacyPolicy" element={<PrivacyPolicy />}></Route>
           <Route path="/userManagement" element={<UserManagement/>}></Route>
-          <Route path="/userDetail" element={<UserDetail/>}></Route>
+          <Route path="/userDetail/:id" element={<UserDetail/>}></Route>
           <Route path="/templateManagement" element={<TemplateManagement/>}></Route>
           <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>
           <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
