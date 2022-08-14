@@ -2,49 +2,63 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
 import { getStatusColorCode, } from '../utils/colorUtil';
+import { useParams } from "react-router-dom";
+import { useAxios } from '../utils/axiosUtil';
 
 const EventDetailItem = () => {
 
-  const [eventInfo, setEventInfo] = useState({});
+  const axios = useAxios();
   const { id } = useParams();
-  
+  const [event, setEvent] = useState({});
+  const [categories, setCategories] = useState([]);
+
   useEffect(() => {
-    setEventInfo({
-      status: 1,
-    })
-  }, [])
+    const fetchDate = async () => {
+      const result = await axios.get('/event/' + id);
+      setEvent(result.data);
+      const result2 = await axios.get('/userCategory');
+      setCategories(result2.data.filter(e => e.category_name !== ''));
+    }
+    fetchDate();
+  }, []);
 
 	return (
 		<Box
 		sx={{
       p: 2,
       marginTop: 2,
-			border: `solid 1px ${getStatusColorCode(eventInfo.status)}`,
+			border: `solid 1px ${getStatusColorCode(event.status)}`,
 			borderRadius: 3,
 			
 		}}
 		>
 			<Grid container spacing={1}>
 				<Grid item xs={12}>
-					<Typography>イベント名</Typography>
+  <Typography>イベント名：{event.title}</Typography>
 				</Grid>
 				<Grid item xs={12}>
-					<Typography>日時</Typography>
+  <Typography>開催日時：{event.event_date}  {event.start_time}〜{event.end_time}</Typography>
 				</Grid>
 				<Grid item xs={12}>
-					<Typography>場所</Typography>
+  <Typography>場所：{event.place}</Typography>
 				</Grid>
 				<Grid item xs={12}>
-					<Typography>詳細</Typography>
+  <Typography>詳細：{event.description}</Typography>
 				</Grid>
 				<Grid item xs={12}>
-					<Typography>参加人数： xx / xx</Typography>
+  <Typography>参加人数： xx / {event.limit_number}</Typography>
 				</Grid>
 				<Grid item xs={12}>
 					<Typography>参加費</Typography>
 				</Grid>
+        {categories.map((e, index) => {
+          return (
+          <Grid item xs={12}>
+					  <Typography>{e.category_name}：{event['price' + index]}</Typography>
+				  </Grid>
+          )
+        })}
 			</Grid>
 		</Box>
 	)

@@ -4,10 +4,24 @@ import { Outlet } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useAxios } from '../utils/axiosUtil';
 
 const EventDetail = () => {
 
+  const axios = useAxios();
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [event, setEvent] = useState({});
+
+  useEffect(() => {
+    const fetchDate = async () => {
+      const result = await axios.get('/event/' + id);
+      setEvent(result.data);
+    }
+    fetchDate();
+  }, [])
 
   return (
     <Container maxWidth={'lg'}>
