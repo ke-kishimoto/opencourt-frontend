@@ -2,14 +2,21 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useState, useEffect } from 'react';
+import { useAxios } from '../utils/axiosUtil';
 
-const CategorySelectBox = () => {
+const CategorySelectBox = (props) => {
 
-  const categories = [
-    { id: 1, label: '社会人' },
-    { id: 2, label: '大学生' },
-    { id: 3, label: '高校生以下' },
-  ]
+  const axios = useAxios();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchDate = async () => {
+      const result = await axios.get('/userCategory');
+      setCategories(result.data.filter(e => e.category_name !== ''));
+    };
+    fetchDate();
+  }, []);
 
   return (
     <FormControl fullWidth>
@@ -18,14 +25,16 @@ const CategorySelectBox = () => {
         required
         name="category"
         label="カテゴリ"
+        disabled={props.disabled}
+        defaultValue={props.value}
       >
         {categories.map(e => {
           return (
             <MenuItem
               value={e.id}
-              key={e.value}
+              key={e.id}
             >
-              {e.label}
+              {e.category_name}
             </MenuItem>
           );
         })}

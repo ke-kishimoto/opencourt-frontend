@@ -205,7 +205,7 @@ const Calendar = () => {
         return (
           <Grid item xs={12}>
             <EventItem
-              eventInfo={e}
+              event={e}
             />
           </Grid>
         )

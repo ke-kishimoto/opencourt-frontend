@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import CategorySelectBox from '../elements/CategorySelectBox';
 import GenderSelectBox from '../elements/GenderSelectBox';
 
-const BasicUserForm = () => {
+const BasicUserForm = (props) => {
   return (
     <>
       <Grid item xs={6}>
@@ -11,13 +11,21 @@ const BasicUserForm = () => {
           fullWidth
           label="名前"
           variant="outlined"
+          value={props.user.name}
+          disabled={props.disabled}
         />
       </Grid>
       <Grid item xs={3}>
-        <GenderSelectBox />
+        <GenderSelectBox 
+          disabled={props.disabled}
+          value={props.user.gender}
+        />
       </Grid>
       <Grid item xs={3}>
-        <CategorySelectBox />
+        <CategorySelectBox 
+          disabled={props.disabled}
+          value={props.user.user_category_id}
+        />
       </Grid>
     </>
   )
