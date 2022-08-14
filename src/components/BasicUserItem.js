@@ -13,7 +13,7 @@ const BasicUserItem = (props) => {
 		>
       <Grid container>
         <Grid item xs={1}>
-          <Avatar>U</Avatar>
+          <Avatar>{props.user.name.substring(0,1)}</Avatar>
         </Grid>
         <Grid item xs={2}>
           {props.user.name}
