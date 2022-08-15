@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from "react";
 import BasicUserForm from './BasicUserForm';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { getUser } from '../states/selectors/userSelector';
 import { companionsState } from '../states/atoms/companionsAtom';
 import RegiterBtn from '../elements/RegistBtn';
@@ -14,11 +14,9 @@ import { useParams } from "react-router-dom";
 const JoinForm = () => {
 
   const { id } = useParams();
-  // const [companions, setCompanions] = useState([]);
   const [remark, setRemark] = useState('');
   const user = useRecoilValue(getUser);
-  const companions = useRecoilValue(companionsState);
-  const setCompanions = useSetRecoilState(companionsState);
+  const [companions, setCompanions] = useRecoilState(companionsState);
 
   const companion = {
     name: '', gender: '', category: '',

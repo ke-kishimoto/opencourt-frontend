@@ -2,20 +2,18 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
 import { getEventTemplate } from '../states/selectors/eventTemplateSelector';
 import { useAxios } from '../utils/axiosUtil';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { eventBaseState } from "../states/atoms/eventAtom";
-import { getEventBase } from '../states/selectors/eventSelector';
 
 const BasicEventForm = () => {
 
   const axios = useAxios();
   const [categories, setCategories] = useState([]);
   const template = useRecoilValue(getEventTemplate);
-  const setEventBase =  useSetRecoilState(eventBaseState);
-  const eventBase = useRecoilValue(getEventBase);
+
+  const [eventBase, setEventBase] = useRecoilState(eventBaseState);
 
   useEffect(() => {
     const fetchDate = async () => {
