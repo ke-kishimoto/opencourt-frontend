@@ -6,10 +6,17 @@ import { Box } from '@mui/system';
 const UserDetailItem = (props) => {
 
   return (
-    <Box>
+    <Box
+    sx={{
+      p: 2,
+      m: 3,
+      border: 'solid 1px #f08a24',
+      borderRadius: 3,
+    }}
+    >
       <Grid container spacing={3} margin={5}>
         <Grid item xs={1}>
-          <Avatar>U</Avatar>
+          <Avatar>{props.user.name.substring(0,1)}</Avatar>
         </Grid>
         <Grid item xs={5}>
           <Typography>名前：{props.user.name}</Typography>

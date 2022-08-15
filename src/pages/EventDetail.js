@@ -73,7 +73,7 @@ const EventDetail = () => {
           sx={{
             m: 3
           }}
-          onClick={() => { }}
+          onClick={() => { navigate('eventEdit') }}
         >
           修正
           </Button>
