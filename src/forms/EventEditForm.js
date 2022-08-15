@@ -5,9 +5,10 @@ import { useState, useEffect } from 'react';
 import { useAxios } from '../utils/axiosUtil';
 import { useSetRecoilState } from 'recoil';
 import { eventBaseState } from "../states/atoms/eventAtom";
-import RegisterBtn from '../elements/RegistBtn';
 import { useRecoilValue } from 'recoil';
 import { getEventBase } from '../states/selectors/eventSelector';
+import RegisterBtn from '../elements/RegistBtn';
+import DeleteBtn from '../elements/DeleteBtn';
 
 const EventEditForm = () => {
 
@@ -39,6 +40,12 @@ const EventEditForm = () => {
           data={{...eventBase, 
             id: id,
           }}
+        />  
+				</Grid>
+        <Grid item xs={6}>
+        <DeleteBtn 
+          endpoint={'/event'}
+          id={id}
         />  
 				</Grid>
     </Grid>
