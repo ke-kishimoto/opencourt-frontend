@@ -30,6 +30,8 @@ import YearSalesTotal from './components/YearSalesTotal';
 import AllSales from './components/AllSales';
 import MyPage from './pages/MyPage';
 import EventEditForm from './forms/EventEditForm';
+import NewsManagement from './pages/NewsManagement';
+import NewNews from './pages/NewNews';
 
 function App() {
   return (
@@ -68,6 +70,8 @@ function App() {
             <Route path="yearSalesTotal" element={<YearSalesTotal/>}></Route>
             <Route path="all" element={<AllSales/>}></Route>
           </Route>
+          <Route path="newsManagement" element={<NewsManagement/>}></Route>
+          <Route path="newNews" element={<NewNews/>}></Route>
 
         </Routes>
         <Footer />
