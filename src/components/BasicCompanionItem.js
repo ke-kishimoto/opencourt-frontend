@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 const BasicCompanionItem = (props) => {
+
   return (
     <Box sx={{ p: 2,
       marginLeft: 10,

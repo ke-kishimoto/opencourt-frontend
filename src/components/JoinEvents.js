@@ -34,11 +34,13 @@ const JoinEvents = () => {
         </TabList>
         <TabPanel value="1" index={0}>
           <Grid container spacing={5}>
-            {events.filter(e => e.status === COLOR_STATUS_END).map(e => {
+            {events.filter(e => e.status === COLOR_STATUS_END).map(ev => {
               return (
-                <Grid item xs={12}>
+                <Grid item xs={12}
+                  key={ev.id}
+                >
                   <EventItem
-                    eventInfo={e}
+                    event={ev}
                   />
                 </Grid>
               )
@@ -47,11 +49,13 @@ const JoinEvents = () => {
         </TabPanel>
         <TabPanel value="2" index={1}>
           <Grid container spacing={5}>
-            {events.filter(e => e.status !== COLOR_STATUS_END).map(e => {
+            {events.filter(e => e.status !== COLOR_STATUS_END).map(ev => {
               return (
-                <Grid item xs={12}>
+                <Grid item xs={12}
+                  key={ev.id}
+                >
                   <EventItem
-                    eventInfo={e}
+                    event={ev}
                   />
                 </Grid>
               )
