@@ -24,7 +24,9 @@ const UserDetail = () => {
       <UserDetailItem 
         user={user}
       />
-      <JoinEvents />
+      <JoinEvents 
+        id={id}
+      />
     </Container>
 	)
 }

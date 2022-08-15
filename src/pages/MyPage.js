@@ -13,7 +13,9 @@ const MyPage = () => {
       <UserDetailItem 
         user={user}
       />
-      <JoinForm />
+      <JoinForm 
+        id={user.id}
+      />
     </Container>
   )
 }

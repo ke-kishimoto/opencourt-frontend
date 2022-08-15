@@ -16,7 +16,7 @@ const UserDetailItem = (props) => {
     >
       <Grid container spacing={3} margin={5}>
         <Grid item xs={1}>
-          <Avatar>{props.user.name.substring(0,1)}</Avatar>
+          {/* <Avatar>{props.user.name.substring(0,1)}</Avatar> */}
         </Grid>
         <Grid item xs={5}>
           <Typography>名前：{props.user.name}</Typography>
