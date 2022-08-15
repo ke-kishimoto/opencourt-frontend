@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import RegisterBtn from '../elements/RegistBtn';
+import DeleteBtn from '../elements/DeleteBtn';
 import Container from '@mui/material/Container';
 import TemplateSelectBox from '../elements/TemplateSelectBox';
 import BasicEventForm from '../forms/BasicEventForm';
@@ -54,19 +55,25 @@ const TemplateManagement = () => {
 					/>
 				</Grid>
         <BasicEventForm />
-				<Grid item xs={6}>
+				<Grid item xs={4}>
 					<Button
 						variant="outlined"
 					>
 						クリア
 							</Button>
 				</Grid>
-				<Grid item xs={6}>
+				<Grid item xs={4}>
           <RegisterBtn 
             mode={isNew ? 'new' : 'update'}
             validation={validation}
             endpoint={'/eventTemplate'}
             data={{...eventBase, template_name: templateName, isNew, isNew}}
+          />  
+				</Grid>
+        <Grid item xs={4}>
+          <DeleteBtn 
+            endpoint={'/eventTemplate'}
+            id={template.id}
           />  
 				</Grid>
 			</Grid>

@@ -19,6 +19,9 @@ const DeleteBtn = (props) => {
   const navigate = useNavigate();
 
   const onDelete = () => {
+    if(!props.id) {
+      return;
+    }
     setDialogOpen(true)
   }
 
@@ -47,6 +50,7 @@ const DeleteBtn = (props) => {
         color="error"
         sx={{ m: 2 }}
         onClick={onDelete}
+        disabled={!Boolean(props.id)}
       >
         削除
       </Button>
