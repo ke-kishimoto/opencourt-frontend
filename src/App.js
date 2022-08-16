@@ -32,6 +32,7 @@ import MyPage from './pages/MyPage';
 import EventEditForm from './forms/EventEditForm';
 import NewsManagement from './pages/NewsManagement';
 import NewNews from './pages/NewNews';
+import EventUserManagement from './components/EventUserManagement';
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
             <Route path="joinForm" element={<JoinForm/>}></Route>
             <Route path="userList" element={<BasicUserList/>}></Route>
             <Route path="eventEdit" element={<EventEditForm/>}></Route>
+            <Route path="eventUserManagement" element={<EventUserManagement/>}></Route>
           </Route>
           <Route path="/salesManagement" element={<SalesManagement/>}>
             <Route path="monthly" element={<MonthlySalesManagement/>}></Route>

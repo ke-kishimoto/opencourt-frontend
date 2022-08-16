@@ -64,9 +64,9 @@ const EventDetail = () => {
           sx={{
             m: 3
           }}
-          onClick={() => { }}
+          onClick={() => { navigate('eventUserManagement') }}
         >
-          ユーザー追加
+          ユーザー管理
           </Button>
         <Button
           variant="outlined"
