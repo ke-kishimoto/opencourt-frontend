@@ -3,16 +3,23 @@ import EventItem from '../components/EventItem';
 import { useState, useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
+import RegisterBtn from '../elements/RegistBtn';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Typography from '@mui/material/Typography';
+import { useAxios } from '../utils/axiosUtil';
+import { useRecoilValue } from 'recoil';
+import { getUser } from '../states/selectors/userSelector';
 import { 
   COLOR_STATUS_PARTICIPATED, 
   COLOR_STATUS_PARTICIPATED_WAITING, 
   COLOR_STATUS_END} from '../utils/colorUtil';
 
 const BulkReservation = () => {
+
+  const axios = useAxios();
+  const user = useRecoilValue(getUser);
+  const [checkedEventIds, setCheckedEventIds] = useState([]);
 
   const isDisabled = (status) => {
     if(status === COLOR_STATUS_PARTICIPATED || 
@@ -28,15 +35,11 @@ const BulkReservation = () => {
 
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    setEvents([
-      { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
-      { id: 2, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
-      { id: 3, day: 2, short_name: 'バスケ', event_name: 'バスケットボール', status: 1 },
-      { id: 4, day: 3, short_name: 'サッカー', event_name: 'サッカー', status: 2 },
-      { id: 5, day: 3, short_name: '野球', event_name: '野球', status: 3 },
-      { id: 6, day: 4, short_name: '野球', event_name: '野球', status: 4 },
-      { id: 7, day: 4, short_name: '野球', event_name: '野球', status: 5 },
-    ])
+    const fetchData = async () => {
+      const result = await axios.get('/getEventByMonth/' + year + '/' + String((month + 1)).padStart(2, '0'));
+      setEvents(result.data)
+    }
+    fetchData();
   }, [year, month])
 
   return (
@@ -79,25 +82,32 @@ const BulkReservation = () => {
             <Checkbox 
               disabled={isDisabled(e.status)}
               sx={{m:5}}
+              value={e.id}
+              onChange={(event) => {
+                event.target.checked
+                 ? setCheckedEventIds([...checkedEventIds, event.target.value])
+                 : setCheckedEventIds(checkedEventIds.filter(id => id != event.target.value));
+              }}
             />
           </Grid>
           <Grid item xs={11}>
             <EventItem
-              eventInfo={e}
+              event={e}
             />
           </Grid>
           </>
         )
       })}
       <Grid item xs={12}>
-        <Button
-          variant="contained"
-          sx={{marginLeft:20,
-            marginBottom:10,
+        <RegisterBtn 
+          mode={'new'}
+          endpoint={'/bulkResevation'}
+          validation={() => true}
+          data={{
+            user_id: user.id,
+            event_ids: checkedEventIds,
           }}
-        >
-          登録
-        </Button>
+        />
       </Grid>
       </Grid>
     </Container>
