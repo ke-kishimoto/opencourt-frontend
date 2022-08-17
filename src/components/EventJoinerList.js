@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import BasicUserItem from '../components/BasicUserItem';
-import BasicCompanionItem from '../components/BasicCompanionItem';
+import BasicUserItem from './BasicUserItem';
+import BasicCompanionItem from './BasicCompanionItem';
 import { useAxios } from '../utils/axiosUtil';
 
-const BasicUserList = () => {
+const EventJoinerList = () => {
 
   const axios = useAxios();
   const [users, setUsers] = useState([]);
@@ -45,4 +45,4 @@ const BasicUserList = () => {
 
 }
 
-export default BasicUserList;
+export default EventJoinerList;

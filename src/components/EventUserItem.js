@@ -2,11 +2,14 @@ import { Box } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 
-const EventUserItem = () => {
+const EventUserItem = (props) => {
   return (
     <Box
       sx={{
-        maxHeight:'50%',
+        m: 2,
+        p: 2,
+        border: '1px solid grey',
+        borderRadius: '5px',
       }}
     >
       <Grid container>
@@ -24,10 +27,10 @@ const EventUserItem = () => {
         </Grid>
         <Grid item xs={5}/>
         <Grid item xs={1}/>
-        <Grid item xs={2}>
+        <Grid item xs={12}>
           ユーザーステータス：{props.user.status_name}
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12}>
           参加ステータス：{props.user.event_status_name}
         </Grid>
       </Grid>
