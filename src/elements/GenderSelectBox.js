@@ -7,9 +7,9 @@ import { useState, useEffect } from 'react';
 const GenderSelectBox = (props) => {
 
   const gender = [
-    { label: '男性', value: '1' },
-    { label: '女性', value: '2' },
-    { label: 'その他', value: '3' },
+    { label: '男性', value: 'men' },
+    { label: '女性', value: 'women' },
+    { label: 'その他', value: 'other' },
   ]
 
   return (
