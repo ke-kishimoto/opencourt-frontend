@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography';
 
 const LineLogin = () => {
 
-  const clientId = process.env.LINE_LOGIN_CLIENT_ID
-  const callbackUrl = process.env.LINE_LOGIN_COLLBACK_URL
+  const clientId = process.env.REACT_APP_LINE_LOGIN_CLIENT_ID
+  const callbackUrl = process.env.REACT_APP_LINE_LOGIN_COLLBACK_URL
   
   return (
     <Box>
