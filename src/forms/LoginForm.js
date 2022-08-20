@@ -55,7 +55,6 @@ const LoginForm = () => {
           <Button
             variant="contained"
             onClick={() => {
-              console.log(process.env.REACT_APP_URL)
               axios.get(`${process.env.REACT_APP_URL}/sanctum/csrf-cookie`, { withCredentials: true })
               .then(res => {
                 axios.post(`${process.env.REACT_APP_API_URL}/login`, {

@@ -33,6 +33,7 @@ import EventEditForm from './forms/EventEditForm';
 import NewsManagement from './pages/NewsManagement';
 import NewNews from './pages/NewNews';
 import EventUserManagement from './components/EventUserManagement';
+import LineLogin from './pages/LineLogin';
 
 function App() {
   return (
@@ -74,7 +75,8 @@ function App() {
           </Route>
           <Route path="newsManagement" element={<NewsManagement/>}></Route>
           <Route path="newNews" element={<NewNews/>}></Route>
-
+          <Route path="lineLogin" element={<LineLogin/>}></Route>
+          
         </Routes>
         <Footer />
       </BrowserRouter>
