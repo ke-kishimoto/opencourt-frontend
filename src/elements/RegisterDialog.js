@@ -28,8 +28,8 @@ export default function RegisterDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>キャンセル</Button>
-          <Button onClick={props.handleSubmit} autoFocus>
+          <Button id="register-cancel" onClick={handleClose}>キャンセル</Button>
+          <Button id="register-ok" onClick={props.handleSubmit} autoFocus>
             OK
           </Button>
         </DialogActions>

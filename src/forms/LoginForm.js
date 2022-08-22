@@ -36,6 +36,7 @@ const LoginForm = () => {
         <Grid item xs={12}>
           <TextField
             fullWidth
+            id="email"
             label="メールアドレス"
             variant="outlined"
             onChange={e => setLoginId(e.target.value)}
@@ -44,6 +45,7 @@ const LoginForm = () => {
         <Grid item xs={12}>
           <TextField
             fullWidth
+            id="password"
             label="パスワード"
             variant="outlined"
             type="password"
@@ -53,6 +55,7 @@ const LoginForm = () => {
         <Grid item xs={8} />
         <Grid item xs={4}>
           <Button
+            id="login"
             variant="contained"
             onClick={() => {
               axios.get(`${process.env.REACT_APP_URL}/sanctum/csrf-cookie`, { withCredentials: true })

@@ -31,11 +31,11 @@ const RegisterBtn = (props) => {
       ...props.data
     }).then(res => {
       setSeverity('success')
-      setMessage('更新完了しました。')
+      setMessage(`${props.mode === 'new' ? '登録' : '更新'}完了しました。`)
       setSnackbarOpen(true);
     }).catch(error => {
       setSeverity('error')
-      setMessage('更新に失敗しました。')
+      setMessage(`${props.mode === 'new' ? '登録' : '更新'}に失敗しました。`)
       setSnackbarOpen(true);
     }
     ).finally(() => setProgressOpen(false))
@@ -44,6 +44,7 @@ const RegisterBtn = (props) => {
   return (
     <>
       <Button
+        id="register-btn"
         margin="normal"
         variant="contained"
         color="secondary"

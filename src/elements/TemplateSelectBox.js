@@ -31,6 +31,7 @@ const TemplateSelectBox = (props) => {
     <FormControl fullWidth>
       <InputLabel>テンプレート</InputLabel>
       <Select
+        id="template-select"
         required
         name={props.name}
         label="テンプレート"

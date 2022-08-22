@@ -38,6 +38,7 @@ const BasicEventForm = () => {
     <>
       <Grid item xs={12}>
         <TextField
+          id="event-name"
           fullWidth
           label="イベント名"
           name="title"
@@ -48,6 +49,7 @@ const BasicEventForm = () => {
       </Grid>
       <Grid item xs={12}>
         <TextField
+          id="event-short-name"
           fullWidth
           label="イベント名略称"
           name="short_title"
@@ -58,6 +60,7 @@ const BasicEventForm = () => {
       </Grid>
       <Grid item xs={12}>
         <TextField
+          id="place"
           fullWidth
           label="開催場所"
           name="place"
@@ -68,6 +71,7 @@ const BasicEventForm = () => {
       </Grid>
       <Grid item xs={12}>
         <TextField
+          id="limit-number"
           fullWidth
           type="number"
           label="人数"
@@ -79,6 +83,7 @@ const BasicEventForm = () => {
       </Grid>
       <Grid item xs={12}>
         <TextField
+          id="description"
           fullWidth
           multiline
           rows={4}
