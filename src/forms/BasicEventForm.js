@@ -104,6 +104,7 @@ const BasicEventForm = () => {
           >
             <TextField
               fullWidth
+              id={'user-category' + (index + 1)}
               type="number"
               label={e.category_name}
               name={'price' + (index + 1)}

@@ -36,7 +36,9 @@ const TemplateManagement = () => {
 					<Typography>テンプレート管理</Typography>
 				</Grid>
 				<Grid item xs={6}>
-          <TemplateSelectBox />
+          <TemplateSelectBox 
+            name="template_id"
+          />
 				</Grid>
 				<Grid item xs={6}>
          <FormControlLabel control={<Checkbox />} label="新規作成" 
@@ -46,6 +48,7 @@ const TemplateManagement = () => {
         </Grid>
 				<Grid item xs={12}>
 					<TextField
+            id="template-name"
 						fullWidth
             label="テンプレート名"
             name="template_name"
@@ -64,10 +67,14 @@ const TemplateManagement = () => {
 				</Grid>
 				<Grid item xs={4}>
           <RegisterBtn 
-            mode={isNew ? 'new' : 'update'}
+            mode={isNew || Object.keys(template).length === 0 ? 'new' : 'update'}
             validation={validation}
             endpoint={'/eventTemplate'}
-            data={{...eventBase, template_name: templateName, isNew, isNew}}
+            data={{...eventBase, 
+              template_name: templateName, 
+              isNew: isNew,
+              id: template.id,
+            }}
           />  
 				</Grid>
         <Grid item xs={4}>
