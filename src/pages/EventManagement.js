@@ -23,7 +23,11 @@ const EventManagement = () => {
   }, [])
 
   return (
-    <Container maxWidth={'lg'}>
+    <Container maxWidth={'lg'}
+    sx={{
+      minHeight: 650,
+    }}
+    >
       <SearchForm />
       <Button
         variant="outlined"

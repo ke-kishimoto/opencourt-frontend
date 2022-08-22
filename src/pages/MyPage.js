@@ -9,7 +9,11 @@ const MyPage = () => {
   const user = useRecoilValue(getUser);
 
   return (
-    <Container maxWidth={'lg'}>
+    <Container maxWidth={'lg'} 
+      sx={{
+        minHeight: 650,
+      }}
+    >
       <UserDetailItem 
         user={user}
       />

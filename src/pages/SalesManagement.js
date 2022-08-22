@@ -5,7 +5,11 @@ import { Outlet } from "react-router-dom";
 const SalesManagement = () => {
 
   return (
-    <Container>
+    <Container
+    sx={{
+      minHeight: 650,
+    }}
+    >
       <Typography>売上管理</Typography>
       <Outlet />
     </Container>

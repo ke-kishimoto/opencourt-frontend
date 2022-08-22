@@ -43,7 +43,11 @@ const BulkReservation = () => {
   }, [year, month])
 
   return (
-    <Container>
+    <Container
+      sx={{
+        minHeight: 650,
+      }}
+    >
       <Grid container spacing={5} marginTop={5}>
       <Grid item xs={1}>
         <ArrowBackIosIcon
