@@ -7,15 +7,21 @@ import RegisterBtn from '../elements/RegistBtn';
 import Container from '@mui/material/Container';
 import TemplateSelectBox from '../elements/TemplateSelectBox';
 import BasicEventForm from '../forms/BasicEventForm';
-import { useRecoilValue } from 'recoil';
-import { getEventTemplate } from '../states/selectors/eventTemplateSelector';
-import { getEventBase } from '../states/selectors/eventSelector';
+import { useRecoilState, useResetRecoilState } from 'recoil';
+import { eventTemplateState } from '../states/atoms/eventTemplateAtom';
+import { eventBaseState } from '../states/atoms/eventAtom';
 
 const NewEventTemplate = () => {
 
-  const template = useRecoilValue(getEventTemplate);
-  const eventBase = useRecoilValue(getEventBase);
+  const [template, setTemplate] = useRecoilState(eventTemplateState);
+  const [eventBase, setEventBase] = useRecoilState(eventBaseState);
   const [templateName, setTemplateName] = useState('');
+
+  const resetTemplate = useResetRecoilState(eventTemplateState);
+
+  useEffect(() => {
+    resetTemplate()
+  }, [])
 
   useEffect(() => {
     setTemplateName(template.template_name)
@@ -33,7 +39,6 @@ const NewEventTemplate = () => {
 				</Grid>
 				<Grid item xs={6}>
           <TemplateSelectBox 
-            name="template_id"
           />
 				</Grid>
 				<Grid item xs={12}>
@@ -63,6 +68,7 @@ const NewEventTemplate = () => {
             data={{...eventBase, 
               template_name: templateName, 
             }}
+            forward={'/templateManagement'}
           />  
 				</Grid>
    		</Grid>

@@ -65,12 +65,14 @@ const EditEventTemplate = () => {
               template_name: templateName, 
               id: template.id,
             }}
+            forward={'/templateManagement'}
           />  
 				</Grid>
         <Grid item xs={4}>
           <DeleteBtn 
             endpoint={'/eventTemplate'}
             id={template.id}
+            forward={'/templateManagement'}
           />  
 				</Grid>
 			</Grid>

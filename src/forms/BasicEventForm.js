@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import { getEventTemplate } from '../states/selectors/eventTemplateSelector';
 import { useAxios } from '../utils/axiosUtil';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { eventBaseState } from "../states/atoms/eventAtom";
 
 const BasicEventForm = () => {
@@ -12,10 +12,13 @@ const BasicEventForm = () => {
   const axios = useAxios();
   const [categories, setCategories] = useState([]);
   const template = useRecoilValue(getEventTemplate);
+  const resetBaseEvent = useResetRecoilState(eventBaseState);
 
   const [eventBase, setEventBase] = useRecoilState(eventBaseState);
 
   useEffect(() => {
+    setEventBase({})
+    resetBaseEvent()
     const fetchDate = async () => {
       const result = await axios.get('/userCategory');
       setCategories(result.data.filter(e => e.category_name !== ''));

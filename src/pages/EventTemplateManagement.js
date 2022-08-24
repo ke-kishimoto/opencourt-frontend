@@ -1,10 +1,11 @@
 import Grid from '@mui/material/Grid';
 import SearchForm from '../forms/SearchForm';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import { useAxios } from "../utils/axiosUtil";
 import { useState, useEffect } from 'react';
+import EventTemplateItem from '../components/EventTemplateItem';
 
 const EventTemplateManagement = () => {
 
@@ -39,7 +40,9 @@ const EventTemplateManagement = () => {
           <Grid item xs={12}
             key={e.id}
           >
-          <Link to={`/eventTemplate/${e.id}`}>{e.template_name}</Link>
+          <EventTemplateItem 
+            template={e}
+          />
           </Grid>
         )
         })}

@@ -5,6 +5,7 @@ import RegisterDialog from './RegisterDialog';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import CustomizedSnackbars from './CustomizedSnackbarsSnackbar';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterBtn = (props) => {
 
@@ -15,6 +16,7 @@ const RegisterBtn = (props) => {
   const [message, setMessage] = useState('');
 
   const axios = useAxios();
+  const navigate = useNavigate();
 
   const onRegister = () => {
     if (!props.validation()) {
@@ -30,9 +32,15 @@ const RegisterBtn = (props) => {
     method(props.endpoint, {
       ...props.data
     }).then(res => {
-      setSeverity('success')
-      setMessage(`${props.mode === 'new' ? '登録' : '更新'}完了しました。`)
-      setSnackbarOpen(true);
+      if(res.status === 200) {
+        
+        setSeverity('success')
+        setMessage(`${props.mode === 'new' ? '登録' : '更新'}完了しました。`)
+        setSnackbarOpen(true);
+        if(props.forward !== undefined && props.forward !== '') {
+          navigate(props.forward)
+        }
+      } 
     }).catch(error => {
       setSeverity('error')
       setMessage(`${props.mode === 'new' ? '登録' : '更新'}に失敗しました。`)
