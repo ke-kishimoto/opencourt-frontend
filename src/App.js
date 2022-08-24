@@ -9,7 +9,9 @@ import PasswordForget from './pages/PasswordForget';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import UserManagement from './pages/UserManagement';
 import UserDetail from './pages/UserDetail';
-import TemplateManagement from './pages/TemplateManagement';
+import EventTemplateManagement from './pages/EventTemplateManagement';
+import NewEventTemplate from './pages/NewEventTemplate';
+import EditEventTemplate from './pages/EditEventTemplate';
 import EventDetail from './pages/EventDetail';
 import PrivacyPolicyManagement from './pages/PrivacyPolicyMnagement';
 import LogManagement from './pages/LogManagement';
@@ -50,7 +52,9 @@ function App() {
           <Route path="/privacyPolicy" element={<PrivacyPolicy />}></Route>
           <Route path="/userManagement" element={<UserManagement/>}></Route>
           <Route path="/userDetail/:id" element={<UserDetail/>}></Route>
-          <Route path="/templateManagement" element={<TemplateManagement/>}></Route>
+          <Route path="/templateManagement" element={<EventTemplateManagement/>}></Route>
+          <Route path="/newEventTemplate" element={<NewEventTemplate/>}></Route>
+          <Route path="/eventTemplate/:id" element={<EditEventTemplate/>}></Route>
           <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>
           <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
           <Route path="/logManagement" element={<LogManagement/>}></Route>
