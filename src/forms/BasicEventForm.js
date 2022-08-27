@@ -46,7 +46,7 @@ const BasicEventForm = () => {
           label="イベント名"
           name="title"
           variant="outlined"
-          value={eventBase.title}
+          value={eventBase.title === undefined ? '' : eventBase.title}
           onChange={handleChange}
         />
       </Grid>
@@ -57,7 +57,7 @@ const BasicEventForm = () => {
           label="イベント名略称"
           name="short_title"
           variant="outlined"
-          value={eventBase.short_title}
+          value={eventBase.short_title === undefined ? '' : eventBase.short_title }
           onChange={handleChange}
         />
       </Grid>
@@ -68,7 +68,7 @@ const BasicEventForm = () => {
           label="開催場所"
           name="place"
           variant="outlined"
-          value={eventBase.place}
+          value={eventBase.place === undefined ? '' : eventBase.place }
           onChange={handleChange}
         />
       </Grid>
@@ -80,7 +80,7 @@ const BasicEventForm = () => {
           label="人数"
           name="limit_number"
           variant="outlined"
-          value={eventBase.limit_number}
+          value={eventBase.limit_number === undefined ? '' : eventBase.limit_number}
           onChange={handleChange}
         />
       </Grid>
@@ -93,7 +93,7 @@ const BasicEventForm = () => {
           label="詳細"
           name="description"
           variant="outlined"
-          value={eventBase.description}
+          value={eventBase.description === undefined ? '' : eventBase.description}
           onChange={handleChange}
         />
       </Grid>
@@ -112,7 +112,7 @@ const BasicEventForm = () => {
               label={e.category_name}
               name={'price' + (index + 1)}
               variant="outlined"
-              value={eventBase['price' + (index + 1)]}
+              value={eventBase['price' + (index + 1)] === undefined ? '' : eventBase['price' + (index + 1)]}
               onChange={handleChange}
             />
           </Grid>
