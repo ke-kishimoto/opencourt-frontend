@@ -41,7 +41,7 @@ const BasicEventForm = () => {
     <>
       <Grid item xs={12}>
         <TextField
-          id="event-name"
+          id="event-title"
           fullWidth
           label="イベント名"
           name="title"
@@ -52,7 +52,7 @@ const BasicEventForm = () => {
       </Grid>
       <Grid item xs={12}>
         <TextField
-          id="event-short-name"
+          id="event-short-title"
           fullWidth
           label="イベント名略称"
           name="short_title"
