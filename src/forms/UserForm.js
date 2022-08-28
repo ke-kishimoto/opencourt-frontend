@@ -6,18 +6,9 @@ import Avatar from '@mui/material/Avatar';
 import BasicUserForm from './BasicUserForm';
 import { useState } from 'react';
 
-const UserForm = () => {
+const UserForm = (props) => {
 
-  const userInit = {
-    name1: '',
-    gender1: '',
-    user_category_id1: '',
-    email: '',
-    password: '',
-    rePassword: '',
-    description: '',
-  }
-  const [user, setUser] = useState(userInit);
+  const [user, setUser] = useState(props.user);
 
   const validation = () => {
     return true;
@@ -50,24 +41,31 @@ const UserForm = () => {
 						label="メールアドレス"
             variant="outlined"
             onChange={handleChange}
+            value={user.email}
 					/>
 				</Grid>
-				<Grid item xs={12}>
+        <Grid item xs={12}
+          sx={{ display: props.mode === 'new' ? 'block' : 'none' }}
+        >
 					<TextField
             fullWidth
             name="password"
 						label="パスワード"
 						variant="outlined"
             onChange={handleChange}
+            
 					/>
 				</Grid>
-				<Grid item xs={12}>
+        <Grid item xs={12}
+          sx={{ display: props.mode === 'new' ? 'block' : 'none' }}
+        >
 					<TextField
             fullWidth
             name="rePassword"
 						label="パスワード（確認用）"
 						variant="outlined"
             onChange={handleChange}
+            sx={{ display: props.mode === 'new' ? 'block' : 'none' }}
 					/>
 				</Grid>
 				<Grid item xs={12}>
@@ -79,12 +77,13 @@ const UserForm = () => {
 						label="自己紹介"
 						variant="outlined"
             onChange={handleChange}
+            value={user.description}
 					/>
 				</Grid>
 				<Grid item xs={7} />
 				<Grid item xs={2}>
           <RegisterBtn 
-            mode={'new'}
+            mode={props.mode}
             validation={validation}
             data={user}
             endpoint={'user'}
