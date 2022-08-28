@@ -4,6 +4,8 @@ import JoinEvents from '../components/JoinEvents';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useAxios } from '../utils/axiosUtil';
+import Grid from '@mui/material/Grid';
+import DeleteBtn from '../elements/DeleteBtn';
 
 const UserDetail = () => {
 
@@ -24,6 +26,13 @@ const UserDetail = () => {
       <UserDetailItem 
         user={user}
       />
+      <Grid item xs={4}>
+      <DeleteBtn 
+        endpoint={'/user'}
+        id={id}
+        forward={'/userManagement'}
+      />
+      </Grid>
       <JoinEvents 
         id={id}
       />

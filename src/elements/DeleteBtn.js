@@ -32,10 +32,10 @@ const DeleteBtn = (props) => {
       .then(res => {
         setSeverity('success')
         setMessage('削除が完了しました。')
-        setSnackbarOpen(true);
         if(props.forward !== undefined && props.forward !== '') {
           navigate(props.forward)
         }
+        setSnackbarOpen(true);
       }).catch(error => {
         setSeverity('error')
         setMessage('削除に失敗しました。')
