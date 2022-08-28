@@ -47,6 +47,7 @@ const DeleteBtn = (props) => {
   return (
     <>
       <Button
+        id="delete-btn"
         margin="normal"
         variant="contained"
         color="error"
