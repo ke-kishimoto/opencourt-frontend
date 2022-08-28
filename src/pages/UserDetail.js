@@ -6,32 +6,36 @@ import { useState, useEffect } from 'react';
 import { useAxios } from '../utils/axiosUtil';
 import Grid from '@mui/material/Grid';
 import DeleteBtn from '../elements/DeleteBtn';
+import ChangeRole from '../components/ChangeRole';
+import FetchData from '../components/FetchData';
 
 const UserDetail = () => {
 
-  const axios = useAxios();
   const { id } = useParams();
   const [user, setUser] = useState({user_category:{}});
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get('/user/' + id);
-      setUser(result.data);
-    }
-    fetchData();
-  }, [])
-
 	return (
     <Container maxWidth={'lg'}>
+      <FetchData 
+        setData={setUser}
+        endpoint={'/user'}
+        id={id}
+      />
       <UserDetailItem 
         user={user}
       />
-      <Grid item xs={4}>
-      <DeleteBtn 
-        endpoint={'/user'}
-        id={id}
-        forward={'/userManagement'}
-      />
+      <Grid container>
+        <ChangeRole 
+          role={user.role_level}
+          id={user.id}
+        />
+        <Grid item xs={4}>
+          <DeleteBtn 
+            endpoint={'/user'}
+            id={id}
+            forward={'/userManagement'}
+          />
+        </Grid>
       </Grid>
       <JoinEvents 
         id={id}
