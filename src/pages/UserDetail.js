@@ -7,6 +7,7 @@ import { useAxios } from '../utils/axiosUtil';
 import Grid from '@mui/material/Grid';
 import DeleteBtn from '../elements/DeleteBtn';
 import ChangeRole from '../components/ChangeRole';
+import ChangeStatus from '../components/ChangeStatus';
 import FetchData from '../components/FetchData';
 
 const UserDetail = () => {
@@ -27,6 +28,10 @@ const UserDetail = () => {
       <Grid container>
         <ChangeRole 
           role={user.role_level}
+          id={user.id}
+        />
+        <ChangeStatus
+          status={user.status}
           id={user.id}
         />
         <Grid item xs={4}>
