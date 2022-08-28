@@ -1,11 +1,34 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import RegisterBtn from '../elements/RegistBtn';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import BasicUserForm from './BasicUserForm';
+import { useState } from 'react';
 
 const UserForm = () => {
+
+  const userInit = {
+    name1: '',
+    gender1: '',
+    user_category_id1: '',
+    email: '',
+    password: '',
+    rePassword: '',
+    description: '',
+  }
+  const [user, setUser] = useState(userInit);
+
+  const validation = () => {
+    return true;
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setUser(
+      { ...user, [name]: value }
+    )
+  }
 
 	return (
 		<Container maxWidth={'lg'}>
@@ -14,44 +37,58 @@ const UserForm = () => {
 				<Grid item xs={12}>
 					<Avatar>U</Avatar>
 				</Grid>
-        <BasicUserForm />
+        <BasicUserForm 
+          disabled={false}
+          handleChange={handleChange}
+          index={1}
+          user={user}
+        />
 				<Grid item xs={12}>
 					<TextField
-						fullWidth
+            fullWidth
+            name="email"
 						label="メールアドレス"
-						variant="outlined"
+            variant="outlined"
+            onChange={handleChange}
 					/>
 				</Grid>
 				<Grid item xs={12}>
 					<TextField
-						fullWidth
+            fullWidth
+            name="password"
 						label="パスワード"
 						variant="outlined"
+            onChange={handleChange}
 					/>
 				</Grid>
 				<Grid item xs={12}>
 					<TextField
-						fullWidth
+            fullWidth
+            name="rePassword"
 						label="パスワード（確認用）"
 						variant="outlined"
+            onChange={handleChange}
 					/>
 				</Grid>
 				<Grid item xs={12}>
 					<TextField
 						multiline
 						rows={4}
-						fullWidth
+            fullWidth
+            name="description"
 						label="自己紹介"
 						variant="outlined"
+            onChange={handleChange}
 					/>
 				</Grid>
 				<Grid item xs={7} />
 				<Grid item xs={2}>
-					<Button
-						variant="contained"
-					>
-						登録
-						</Button>
+          <RegisterBtn 
+            mode={'new'}
+            validation={validation}
+            data={user}
+            endpoint={'user'}
+          />
 				</Grid>
 				<Grid item xs={3} />
 			</Grid>

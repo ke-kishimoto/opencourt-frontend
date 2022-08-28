@@ -4,9 +4,11 @@ import UserItem from '../components/UserItem';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
 import { useAxios } from '../utils/axiosUtil';
+import { useNavigate } from 'react-router-dom';
 
 const UserManagement = () => {
   
+  const navigate = useNavigate();
   const axios = useAxios();
   const [users, setUsers] = useState([]);
 
@@ -23,6 +25,7 @@ const UserManagement = () => {
       <SearchForm />
       <Button
         variant="outlined"
+        onClick={() => { navigate('/newUser') }}
       >
       新規登録
       </Button>
