@@ -53,6 +53,7 @@ const UserCategory = () => {
           return (
             <Grid item xs={12}>
               <TextField
+                id={'user-category' + (index + 1)}
                 key={index}
                 fullWidth
                 label={'カテゴリ' + (index + 1)}
