@@ -19,7 +19,7 @@ const DeleteBtn = (props) => {
   const navigate = useNavigate();
 
   const onDelete = () => {
-    if(!props.id) {
+    if(!props.id && !props.data) {
       return;
     }
     setDialogOpen(true)
@@ -28,17 +28,19 @@ const DeleteBtn = (props) => {
   const handleSubmit = () => {
     setDialogOpen(false)
     setProgressOpen(true)
-    axios.delete(props.endpoint + '/' + props.id)
+    axios.delete(props.endpoint + '/' + props.id, {
+      data:{...props.data}
+    })
       .then(res => {
         setSeverity('success')
-        setMessage('削除が完了しました。')
+        setMessage(`${props.label === undefined ? '削除' : props.label}が完了しました。`)
         if(props.forward !== undefined && props.forward !== '') {
           navigate(props.forward)
         }
         setSnackbarOpen(true);
       }).catch(error => {
         setSeverity('error')
-        setMessage('削除に失敗しました。')
+        setMessage(`${props.label === undefined ? '削除' : props.label}に失敗しました。`)
         setSnackbarOpen(true);
       }
       ).finally(() => setProgressOpen(false))
@@ -53,9 +55,8 @@ const DeleteBtn = (props) => {
         color="error"
         sx={{ m: 2 }}
         onClick={onDelete}
-        disabled={!Boolean(props.id)}
       >
-        削除
+        {props.label === undefined ? '削除' : props.label}
       </Button>
       <RegisterDialog
         open={dialogOpen}
