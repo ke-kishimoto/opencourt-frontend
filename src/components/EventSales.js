@@ -8,16 +8,23 @@ import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
+import { useParams } from "react-router-dom";
+import { useAxios } from '../utils/axiosUtil';
 
 const EventSales = () => {
 
-	const [eventInfos, setEventInfos] = useState([]);
+  const axios = useAxios();
+  const [eventUsers, setEventUsers] = useState([]);
+  const { id } = useParams();
 
 	useEffect(() => {
-		setEventInfos([
-			{id: 1, user_name: 'aaaa', attendance: '○', sales: 100, memo: ''},
-			{id: 2, user_name: 'bbbb', attendance: '○', sales: 100, memo: ''},
-		])
+
+    const fetchData = async () => {
+      const result = await axios.get('/getEventUser/' + id);
+      setEventUsers(result.data);
+    }
+    fetchData();
+
 	}, []);
 
 	return (
@@ -38,11 +45,11 @@ const EventSales = () => {
 				<Grid item xs={12}>
 					<hr/>
 				</Grid>
-			{eventInfos.map(e => {
+			{eventUsers.map((e, index) => {
 				return (
 					<>
 						<Grid item xs={3}>
-							<Typography>{e.user_name}</Typography>
+							<Typography>{e.user.name}</Typography>
 						</Grid>
 						<Grid item xs={3}>
 							<FormControl sx={{ width: '50%' }}>
@@ -50,7 +57,8 @@ const EventSales = () => {
 								<Select
 									required
 									name="attendance"
-									label="出欠"
+                  label="出欠"
+                  defaultValue={eventUsers[index].attendance}
 								>
 									<MenuItem value={1}>{'○'}</MenuItem>
 									<MenuItem value={2}>{'×'}</MenuItem>
@@ -62,14 +70,16 @@ const EventSales = () => {
 								fullWidth
 								type="number"
 								label="回収金額"
-								variant="outlined"
+                variant="outlined"
+                value={eventUsers[index].amount}
 							/>
 						</Grid>
 						<Grid item xs={3}>
 						<TextField
 								fullWidth
 								label="備考"
-								variant="outlined"
+                variant="outlined"
+                value={eventUsers[index].amount_remark}
 							/>
 						</Grid>
 					</>
