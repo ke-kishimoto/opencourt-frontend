@@ -60,6 +60,7 @@ const AddUser = () => {
           event_id: id,
           companions: [],
         }}
+        forward={`/eventDetail/${id}/userList/`}
       />
 
     </Grid>

@@ -37,6 +37,8 @@ const EventUserManagement = () => {
               <DeleteBtn
                 endpoint={'/eventUser'}
                 id={e.id}
+                label={'参加キャンセル'}
+                forward={`/eventDetail/${id}/userList/`}
               />
             </Grid>
             </>
