@@ -5,6 +5,7 @@ import DeleteBtn from '../elements/DeleteBtn';
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useAxios } from '../utils/axiosUtil';
+import AddUser from '../components/AddUser';
 
 const EventUserManagement = () => {
 
@@ -23,6 +24,7 @@ const EventUserManagement = () => {
   return (
     <Box>
       <Grid container>
+        <AddUser />
         {users.map(e => {
           return (
             <>
@@ -33,6 +35,7 @@ const EventUserManagement = () => {
             </Grid>
             <Grid item xs={2}>
               <DeleteBtn
+                endpoint={'/eventUser'}
                 id={e.id}
               />
             </Grid>
