@@ -6,24 +6,23 @@ import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
+import { useAxios } from '../utils/axiosUtil';
+import RegisterBtn from '../elements/RegistBtn';
 
 const MonthlySalesManagement = () => {
 
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth());
   const [events, setEvents] = useState([]);
+  const axios = useAxios();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setEvents([
-      { id: 1, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
-      { id: 2, day: 1, short_name: 'バスケ', event_name: 'バスケットボール', status: 9 },
-      { id: 3, day: 2, short_name: 'バスケ', event_name: 'バスケットボール', status: 1 },
-      { id: 4, day: 3, short_name: 'サッカー', event_name: 'サッカー', status: 2 },
-      { id: 5, day: 3, short_name: '野球', event_name: '野球', status: 3 },
-      { id: 6, day: 4, short_name: '野球', event_name: '野球', status: 4 },
-      { id: 7, day: 4, short_name: '野球', event_name: '野球', status: 5 },
-    ])
+    const fetchData = async () => {
+      const result = await axios.get('/getEventByMonth/' + year + '/' + String((month + 1)).padStart(2, '0'));
+      setEvents(result.data)
+    }
+    fetchData();
   }, [year, month]);
 
   return (
@@ -69,7 +68,7 @@ const MonthlySalesManagement = () => {
             年合計
         </Button>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={1}>
           <Typography>日付</Typography>
         </Grid>
         <Grid item xs={2}>
@@ -87,17 +86,20 @@ const MonthlySalesManagement = () => {
         <Grid item xs={2}>
           <Typography>粗利</Typography>
         </Grid>
+        <Grid item xs={1}>
+          <Typography>反映</Typography>
+        </Grid>
         <Grid item xs={12}>
           <hr />
         </Grid>
         {events.map(e => {
           return (
             <>
-              <Grid item xs={2}>
+              <Grid item xs={1}>
                 <Typography>{e.day}</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography>{e.short_name}</Typography>
+                <Typography>{e.short_title}</Typography>
               </Grid>
               <Grid item xs={2}>
                 <TextField
@@ -123,6 +125,13 @@ const MonthlySalesManagement = () => {
               <Grid item xs={2}>
                 <Typography>{0}</Typography>
               </Grid>
+              <Grid item xs={1}>
+                <Button
+                  variant="outlined"
+                >
+                  {'反映'}
+                </Button>
+              </Grid>
             </>
           )
         })}
@@ -145,11 +154,12 @@ const MonthlySalesManagement = () => {
           <Typography>{0}</Typography>
         </Grid>
         <Grid item xs={2}>
-          <Button
-            variant="outlined"
-          >
-            更新
-        </Button>
+          <RegisterBtn 
+            endpoint={''}
+            mode={'update'}
+            validation={() => true}
+            data={{events: events}}
+          />
         </Grid>
       </Grid>
     </>
