@@ -37,6 +37,7 @@ import NewNews from './pages/NewNews';
 import EventUserManagement from './components/EventUserManagement';
 import LineLogin from './pages/LineLogin';
 import EditUser from './pages/EditUser';
+import ConfigManagement from './pages/ConfigManagement';
 import Error from './pages/Error';
 
 function App() {
@@ -83,6 +84,7 @@ function App() {
           <Route path="newNews" element={<NewNews/>}></Route>
           <Route path="lineLogin" element={<LineLogin/>}></Route>
           <Route path="editUser" element={<EditUser/>}></Route>
+          <Route path="configManagement" element={<ConfigManagement/>}></Route>
           <Route path="error" element={<Error/>}></Route>
           
         </Routes>
