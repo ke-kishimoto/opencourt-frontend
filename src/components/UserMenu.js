@@ -80,7 +80,11 @@ const UserMenu = (props) => {
     >
       お知らせ管理
     </MenuItem>
-    <MenuItem>システム設定</MenuItem>
+    <MenuItem
+      onClick={() => navigate('/configManagement')}
+    >
+    システム設定
+    </MenuItem>
     <MenuItem
       onClick={() => navigate('/bulkReservation')}
     >
