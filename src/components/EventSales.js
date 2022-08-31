@@ -1,5 +1,4 @@
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,6 +9,7 @@ import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { useParams } from "react-router-dom";
 import { useAxios } from '../utils/axiosUtil';
+import RegisterBtn from '../elements/RegistBtn';
 
 const EventSales = () => {
 
@@ -18,14 +18,33 @@ const EventSales = () => {
   const { id } = useParams();
 
 	useEffect(() => {
-
     const fetchData = async () => {
       const result = await axios.get('/getEventUser/' + id);
       setEventUsers(result.data);
     }
     fetchData();
 
-	}, []);
+  }, []);
+  
+  const validation = () => {
+    return true;
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const index = Number(name.substr(-1));
+    const newName = name.substring(0, name.length - 1)
+    setEventUsers(
+      eventUsers.map((eventUser, i) => {
+        if(index !== i) {
+          return eventUser;
+        } else {
+          eventUser[newName] = value;
+          return eventUser;
+        } 
+      })
+    )
+  }
 
 	return (
 		<Box>
@@ -56,30 +75,35 @@ const EventSales = () => {
 								<InputLabel>出欠</InputLabel>
 								<Select
 									required
-									name="attendance"
+									name={'attendance' + index}
                   label="出欠"
                   defaultValue={eventUsers[index].attendance}
+                  onChange={handleChange}
 								>
-									<MenuItem value={1}>{'○'}</MenuItem>
-									<MenuItem value={2}>{'×'}</MenuItem>
+									<MenuItem value={'attendance'}>{'○'}</MenuItem>
+									<MenuItem value={'absence'}>{'×'}</MenuItem>
 								</Select>
 							</FormControl>
 						</Grid>
 						<Grid item xs={3}>
 							<TextField
-								fullWidth
+                fullWidth
+                name={'amount' + index}
 								type="number"
 								label="回収金額"
                 variant="outlined"
                 value={eventUsers[index].amount}
+                onChange={handleChange}
 							/>
 						</Grid>
 						<Grid item xs={3}>
 						<TextField
-								fullWidth
+                fullWidth
+                name={'amount_remark' + index}
 								label="備考"
                 variant="outlined"
                 value={eventUsers[index].amount_remark}
+                onChange={handleChange}
 							/>
 						</Grid>
 					</>
@@ -87,11 +111,12 @@ const EventSales = () => {
 			})}
 				<Grid item xs={10}/>
 				<Grid item xs={2}>
-					<Button
-						variant="contained"
-						>
-						登録
-					</Button>
+          <RegisterBtn
+            endpoint={'/eventUserSales'}
+            mode={'update'}
+            data={{eventUsers: eventUsers}}
+            validation={validation}
+          />
 				</Grid>
 			</Grid>
 		</Box>
