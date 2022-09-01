@@ -16,7 +16,7 @@ const YearSalesTotal = () => {
 
   useEffect(() => {
     const fetchDate = async () => {
-      const result = await axios.get('/getMonthlySlaes/' + year);
+      const result = await axios.get('/getMonthlySales/' + year);
       setMontylySales(result.data);
     }
     fetchDate();

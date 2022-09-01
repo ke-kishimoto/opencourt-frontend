@@ -3,18 +3,20 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAxios } from '../utils/axiosUtil';
 
 const AllSales = () => {
 
   const [yearSales, setYearSales] = useState([]);
+  const axios = useAxios();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setYearSales([
-      { year: 2020, participants_num: 10, sales: 10000, profit: 5000 },
-      { year: 2021, participants_num: 10, sales: 10000, profit: 5000 },
-      { year: 2022, participants_num: 10, sales: 10000, profit: 5000 },
-    ])
+    const fetchData = async () => {
+      const result = await axios.get('/getAllSales');
+      setYearSales(result.data);
+    }
+    fetchData();
   }, [])
 
   return (
@@ -62,10 +64,10 @@ const AllSales = () => {
                 <Typography>{e.year}</Typography>
               </Grid>
               <Grid item xs={3}>
-                <Typography>{e.participants_num}</Typography>
+                <Typography>{e.number_of_user}</Typography>
               </Grid>
               <Grid item xs={3}>
-                <Typography>{e.sales}</Typography>
+                <Typography>{e.amount}</Typography>
               </Grid>
               <Grid item xs={3}>
                 <Typography>{e.profit}</Typography>
@@ -80,13 +82,19 @@ const AllSales = () => {
           <Typography>合計</Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography>0</Typography>
+          <Typography>
+            {yearSales.map(e => Number(e.number_of_user)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography>0</Typography>
+          <Typography>
+            {yearSales.map(e => Number(e.amount)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography>0</Typography>
+          <Typography>
+            {yearSales.map(e => Number(e.profit)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
       </Grid>
     </>
