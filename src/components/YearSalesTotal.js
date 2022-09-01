@@ -5,21 +5,21 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAxios } from '../utils/axiosUtil';
 
 const YearSalesTotal = () => {
 
   const [year, setYear] = useState(new Date().getFullYear());
   const [monthlySales, setMontylySales] = useState([]);
+  const axios = useAxios();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setMontylySales([
-      { month: 1, participants_num: 10, sales: 10000, profit: 5000 },
-      { month: 2, participants_num: 10, sales: 10000, profit: 5000 },
-      { month: 3, participants_num: 10, sales: 10000, profit: 5000 },
-      { month: 4, participants_num: 10, sales: 10000, profit: 5000 },
-      { month: 5, participants_num: 10, sales: 10000, profit: 5000 },
-    ])
+    const fetchDate = async () => {
+      const result = await axios.get('/getMonthlySlaes/' + year);
+      setMontylySales(result.data);
+    }
+    fetchDate();
   }, [year])
 
   return (
@@ -82,10 +82,10 @@ const YearSalesTotal = () => {
                 <Typography>{e.month}</Typography>
               </Grid>
               <Grid item xs={3}>
-                <Typography>{e.participants_num}</Typography>
+                <Typography>{e.number_of_user}</Typography>
               </Grid>
               <Grid item xs={3}>
-                <Typography>{e.sales}</Typography>
+                <Typography>{e.amount}</Typography>
               </Grid>
               <Grid item xs={3}>
                 <Typography>{e.profit}</Typography>
@@ -100,13 +100,19 @@ const YearSalesTotal = () => {
           <Typography>合計</Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography>0</Typography>
+          <Typography>
+            {monthlySales.map(e => Number(e.number_of_user)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography>0</Typography>
+          <Typography>
+            {monthlySales.map(e => Number(e.amount)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography>0</Typography>
+          <Typography>
+            {monthlySales.map(e => Number(e.profit)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
       </Grid>
     </>
