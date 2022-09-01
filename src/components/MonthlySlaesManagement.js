@@ -25,6 +25,32 @@ const MonthlySalesManagement = () => {
     fetchData();
   }, [year, month]);
 
+  const reflectAmount = async (event) => {
+    const result = await axios.put('/reflectEventDetail/' + event.target.value)
+    setEvents(events.map(e => {
+      if(e.id != event.target.value) return e;
+      e['number_of_user'] = result.data.number_of_user;
+      e['amount'] = result.data.amount;
+      return e;
+    })) 
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const index = Number(name.substr(-1));
+    const newName = name.substring(0, name.length - 1)
+    setEvents(
+      events.map((e, i) => {
+        if(index !== i) {
+          return e;
+        } else {
+          e[newName] = value;
+          return e;
+        } 
+      })
+    )
+  }
+
   return (
     <>
       <Grid container spacing={5} marginTop={5}>
@@ -92,7 +118,7 @@ const MonthlySalesManagement = () => {
         <Grid item xs={12}>
           <hr />
         </Grid>
-        {events.map(e => {
+        {events.map((e, index) => {
           return (
             <>
               <Grid item xs={1}>
@@ -104,30 +130,41 @@ const MonthlySalesManagement = () => {
               <Grid item xs={2}>
                 <TextField
                   type="number"
+                  name={'number_of_user' + index}
                   label="参加人数"
                   variant="outlined"
+                  value={e.number_of_user}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={2}>
                 <TextField
                   type="number"
+                  name={'amount' + index}
                   label="売上金額"
                   variant="outlined"
+                  value={e.amount}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={2}>
                 <TextField
                   type="number"
+                  name={'expenses' + index}
                   label="経費"
                   variant="outlined"
+                  value={e.expenses}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={2}>
-                <Typography>{0}</Typography>
+                <Typography>{e.amount - e.expenses}</Typography>
               </Grid>
               <Grid item xs={1}>
                 <Button
                   variant="outlined"
+                  value={e.id}
+                  onClick={reflectAmount}
                 >
                   {'反映'}
                 </Button>
@@ -142,20 +179,28 @@ const MonthlySalesManagement = () => {
           <Typography>合計</Typography>
         </Grid>
         <Grid item xs={2}>
-          <Typography>{0}</Typography>
+          <Typography>
+            {events.map(e => Number(e.number_of_user)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={2}>
-          <Typography>{0}</Typography>
+          <Typography>
+            {events.map(e => Number(e.amount)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={2}>
-          <Typography>{0}</Typography>
+          <Typography>
+            {events.map(e => Number(e.expenses)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={2}>
-          <Typography>{0}</Typography>
+          <Typography>
+          {events.map(e => Number(e.amount) - Number(e.expenses)).reduce((p, c) => p + c, 0)}
+          </Typography>
         </Grid>
         <Grid item xs={2}>
           <RegisterBtn 
-            endpoint={''}
+            endpoint={'/monthlySales'}
             mode={'update'}
             validation={() => true}
             data={{events: events}}
