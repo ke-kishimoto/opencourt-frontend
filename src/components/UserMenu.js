@@ -31,7 +31,7 @@ const UserMenu = (props) => {
       マイページ
     </MenuItem>
     <MenuItem
-      onClick={() => {navigate('/privacyPolicyManagement')}}
+      onClick={() => {navigate('/policyManagement')}}
     >
       プライバシーポリシー管理
     </MenuItem>

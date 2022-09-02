@@ -13,7 +13,8 @@ const Footer = () => {
       height: 150,
       }}
     >
-      <Link to="/privacyPolicy">プライバシーポリシー</Link>
+      <Link to="/policy/privacy">プライバシーポリシー</Link><br />
+      <Link to="/policy/cancel">キャンセルポリシー</Link>
     </Box>
   )
 

@@ -6,14 +6,14 @@ import Top from './pages/Top';
 import Login from './pages/Login';
 import NewUser from './pages/NewUser';
 import PasswordForget from './pages/PasswordForget';
-import PrivacyPolicy from './pages/PrivacyPolicy';
+import Policy from './pages/Policy';
 import UserManagement from './pages/UserManagement';
 import UserDetail from './pages/UserDetail';
 import EventTemplateManagement from './pages/EventTemplateManagement';
 import NewEventTemplate from './pages/NewEventTemplate';
 import EditEventTemplate from './pages/EditEventTemplate';
 import EventDetail from './pages/EventDetail';
-import PrivacyPolicyManagement from './pages/PrivacyPolicyMnagement';
+import PolicyManagement from './pages/PolicyMnagement';
 import LogManagement from './pages/LogManagement';
 import UserCategory from './pages/UserCategory';
 import SegmentDelivery from './pages/SegmentDelivery';
@@ -52,14 +52,14 @@ function App() {
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/newUser" element={<NewUser />}></Route>
           <Route path="/passwordForget" element={<PasswordForget />}></Route>
-          <Route path="/privacyPolicy" element={<PrivacyPolicy />}></Route>
+          <Route path="/policy/:type" element={<Policy />}></Route>
           <Route path="/userManagement" element={<UserManagement/>}></Route>
           <Route path="/userDetail/:id" element={<UserDetail/>}></Route>
           <Route path="/templateManagement" element={<EventTemplateManagement/>}></Route>
           <Route path="/newEventTemplate" element={<NewEventTemplate/>}></Route>
           <Route path="/eventTemplate/:id" element={<EditEventTemplate/>}></Route>
           <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>
-          <Route path="/privacyPolicyManagement" element={<PrivacyPolicyManagement/>}></Route>
+          <Route path="/policyManagement" element={<PolicyManagement/>}></Route>
           <Route path="/logManagement" element={<LogManagement/>}></Route>
           <Route path="/userCategory" element={<UserCategory/>}></Route>
           <Route path="/eventManagement" element={<EventManagement/>}></Route>
