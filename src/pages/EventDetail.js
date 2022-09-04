@@ -51,7 +51,6 @@ const EventDetail = () => {
           </Button>
         <Button
           variant="outlined"
-          color="secondary"
           sx={{
             m: 3
           }}
@@ -61,6 +60,7 @@ const EventDetail = () => {
           </Button>
           <Button
           variant="outlined"
+          color="secondary"
           sx={{
             m: 3
           }}
@@ -70,6 +70,7 @@ const EventDetail = () => {
           </Button>
         <Button
           variant="outlined"
+          color="secondary"
           sx={{
             m: 3
           }}
@@ -79,6 +80,7 @@ const EventDetail = () => {
           </Button>
         <Button
           variant="outlined"
+          color="secondary"
           sx={{
             m: 3
           }}
