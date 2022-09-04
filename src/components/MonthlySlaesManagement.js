@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
 import { useAxios } from '../utils/axiosUtil';
 import RegisterBtn from '../elements/RegistBtn';
+import { Link } from "react-router-dom";
 
 const MonthlySalesManagement = () => {
 
@@ -98,7 +99,9 @@ const MonthlySalesManagement = () => {
           <Typography>日付</Typography>
         </Grid>
         <Grid item xs={2}>
-          <Typography>イベント名</Typography>
+          <Typography>
+            イベント名
+          </Typography>
         </Grid>
         <Grid item xs={2}>
           <Typography>参加人数</Typography>
@@ -125,7 +128,9 @@ const MonthlySalesManagement = () => {
                 <Typography>{e.day}</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography>{e.short_title}</Typography>
+                <Typography>
+                <Link to={'/eventDetail/' + e.id}>{e.short_title}</Link>
+                </Typography>
               </Grid>
               <Grid item xs={2}>
                 <TextField
