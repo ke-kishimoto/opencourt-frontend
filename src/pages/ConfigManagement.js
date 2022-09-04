@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import RegisterBtn from '../elements/RegistBtn';
+import TextField from '@mui/material/TextField';
 
 const ConfigManagement = () => {
 
@@ -16,6 +17,7 @@ const ConfigManagement = () => {
   const [config, setConfig] = useState({
     line_notify_flag: 'on',
     waiting_status_auto_update_flag: 'on',
+    participant_border_number: 0,
   });
 
   const handleChange = (event) => {
@@ -70,6 +72,16 @@ const ConfigManagement = () => {
                 <MenuItem value={'off'}>{'off'}</MenuItem>
               </Select>
             </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="残り僅かの境界値"
+              name={'participant_border_number'}
+              variant="outlined"
+              type="number"
+              value={config.participant_border_number}
+              onChange={handleChange}
+            />
           </Grid>
           <Grid item xs={12}>
             <RegisterBtn 
