@@ -47,7 +47,7 @@ const EventDetailItem = () => {
           <Typography>詳細：{event.description}</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography>参加人数： xx / {event.limit_number}</Typography>
+          <Typography>参加人数： {event.user_count} / {event.limit_number}</Typography>
         </Grid>
         <Grid item xs={12}>
           <Typography>参加費</Typography>

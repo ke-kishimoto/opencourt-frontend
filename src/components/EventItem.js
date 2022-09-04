@@ -39,7 +39,7 @@ const EventItem = (props) => {
           <Typography>開催場所：{props.event.place}</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography>参加状況：xx / {props.event.limit_number}</Typography>
+          <Typography>参加状況： {props.event.user_count} / {props.event.limit_number}</Typography>
         </Grid>
       </Grid>
     </Box>
