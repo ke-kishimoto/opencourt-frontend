@@ -31,7 +31,7 @@ const EventUserManagement = () => {
             <Grid item xs={6}
               key={e.id}
             >
-              <EventUserItem user={e.user} />
+              <EventUserItem user={e} />
             </Grid>
             <Grid item xs={2}>
               <DeleteBtn

@@ -17,9 +17,11 @@ const EventItem = (props) => {
         border: `solid 1px ${colorCode}`,
         borderRadius: 3,
         cursor: 'pointer',
+        fontWeight: 700,
         '&:hover': {
           bgcolor: `${colorCode}`,
           opacity: '0.7',
+          color: '#FFF',
         }
       }}
       onClick={() => {
