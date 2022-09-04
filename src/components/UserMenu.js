@@ -33,7 +33,7 @@ const UserMenu = (props) => {
     <MenuItem
       onClick={() => {navigate('/policyManagement')}}
     >
-      プライバシーポリシー管理
+      ポリシー管理
     </MenuItem>
     <MenuItem
       onClick={() => {navigate('/logManagement')}}
