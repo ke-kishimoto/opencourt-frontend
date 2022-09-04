@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useAxios } from '../utils/axiosUtil';
 import AddUser from '../components/AddUser';
+import RegisterBtn from '../elements/RegistBtn';
 
 const EventUserManagement = () => {
 
@@ -33,7 +34,16 @@ const EventUserManagement = () => {
             >
               <EventUserItem user={e} />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={3}>
+              <RegisterBtn
+              endpoint={'/changeEventUserStatus'}
+              mode={'update'}
+              label={'参加ステータス変更'}
+              validation={() => true}
+              data={{
+                id: e.id
+              }}
+            />
               <DeleteBtn
                 endpoint={'/eventUser'}
                 id={e.id}

@@ -4,7 +4,6 @@ import Avatar from '@mui/material/Avatar';
 import { getStatusColorCode, } from '../utils/colorUtil';
 
 const EventUserItem = (props) => {
-
   
   const colorCode = getStatusColorCode(props.user.color_status);
 
@@ -26,7 +25,7 @@ const EventUserItem = (props) => {
           <Avatar>{props.user.user.name.substring(0,1)}</Avatar>
         </Grid>
         <Grid item xs={2}>
-          {props.user.name}
+          {props.user.user.name}
         </Grid>
         <Grid item xs={2}>
           {props.user.user.gender_name}
@@ -39,7 +38,7 @@ const EventUserItem = (props) => {
         <Grid item xs={12}>
           ユーザーステータス：{props.user.user.status_name}
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           参加ステータス：{props.user.status_name}
         </Grid>
       </Grid>

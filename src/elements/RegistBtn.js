@@ -59,7 +59,7 @@ const RegisterBtn = (props) => {
         sx={{ m: 2 }}
         onClick={onRegister}
       >
-        {props.mode === 'new' ? '登録' : '更新'}
+        {props.label === undefined ? (props.mode === 'new' ? '登録' : '更新') : props.label}
       </Button>
       <RegisterDialog
         open={dialogOpen}
