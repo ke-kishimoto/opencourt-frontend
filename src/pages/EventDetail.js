@@ -7,6 +7,8 @@ import Box from '@mui/material/Box';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useAxios } from '../utils/axiosUtil';
+import { useRecoilValue } from 'recoil';
+import { isAdminState } from '../states/selectors/userSelector';
 
 const EventDetail = () => {
 
@@ -14,6 +16,7 @@ const EventDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [event, setEvent] = useState({});
+  const isAdmin = useRecoilValue(isAdminState);
 
   useEffect(() => {
     const fetchDate = async () => {
@@ -62,7 +65,8 @@ const EventDetail = () => {
           variant="outlined"
           color="secondary"
           sx={{
-            m: 3
+            m: 3,
+            display: `${isAdmin ? 'inline-flex' : 'none' }`,
           }}
           onClick={() => { navigate('eventUserManagement') }}
         >
@@ -72,7 +76,8 @@ const EventDetail = () => {
           variant="outlined"
           color="secondary"
           sx={{
-            m: 3
+            m: 3,
+            display: `${isAdmin ? 'inline-flex' : 'none' }`,
           }}
           onClick={() => { navigate('eventEdit') }}
         >
@@ -82,7 +87,8 @@ const EventDetail = () => {
           variant="outlined"
           color="secondary"
           sx={{
-            m: 3
+            m: 3,
+            display: `${isAdmin ? 'inline-flex' : 'none' }`,
           }}
           onClick={() => { navigate('eventSales') }}
         >

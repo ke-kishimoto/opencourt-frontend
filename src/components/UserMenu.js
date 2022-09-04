@@ -4,12 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { userState, tokenState } from '../states/atoms/userAtom';
 import { useResetRecoilState } from 'recoil';
 import { useAxios } from '../utils/axiosUtil';
+import { useRecoilValue } from 'recoil';
+import { isAdminState, isSystemAdminState } from '../states/selectors/userSelector';
 
 const UserMenu = (props) => {
   const navigate = useNavigate();
   const axios = useAxios();
   const resetUser = useResetRecoilState(userState);
   const resetToken = useResetRecoilState(tokenState);
+  const isAdmin = useRecoilValue(isAdminState);
+  const isSystemAdmin = useRecoilValue(isSystemAdminState);
 
   const logout = async () => {
     await axios.post('/logout');
@@ -37,6 +41,7 @@ const UserMenu = (props) => {
       onClick={() => {navigate('/logManagement')}}
       sx={{
         backgroundColor: "#ffb6c1",
+        display: `${isSystemAdmin ? 'flex' : 'none' }`,
       }}
     >
       ログ管理
@@ -45,6 +50,7 @@ const UserMenu = (props) => {
       onClick={() => {navigate('/policyManagement')}}
       sx={{
         backgroundColor: "#ffb6c1",
+        display: `${isSystemAdmin ? 'flex' : 'none' }`,
       }}
     >
       ポリシー管理
@@ -53,6 +59,7 @@ const UserMenu = (props) => {
       onClick={() => {navigate('/UserCategory')}}
       sx={{
         backgroundColor: "#ffb6c1",
+        display: `${isSystemAdmin ? 'flex' : 'none' }`,
       }}
     >
       ユーザーカテゴリ管理
@@ -61,6 +68,7 @@ const UserMenu = (props) => {
       onClick={() => {navigate('/eventManagement')}}
       sx={{
         backgroundColor: "#6495ed",
+        display: `${isSystemAdmin ? 'flex' : 'none' }`,
       }}
     >
       イベント管理
@@ -69,6 +77,7 @@ const UserMenu = (props) => {
       onClick={() => navigate('/userManagement')}
       sx={{
         backgroundColor: '#6495ed',
+        display: `${isAdmin ? 'flex' : 'none' }`,
       }}
     >
       ユーザー管理
@@ -77,6 +86,7 @@ const UserMenu = (props) => {
       onClick={() => navigate('/templateManagement')}
       sx={{
         backgroundColor: '#6495ed',
+        display: `${isAdmin ? 'flex' : 'none' }`,
       }}
     >
       テンプレート管理
@@ -85,6 +95,7 @@ const UserMenu = (props) => {
       onClick={() => navigate('/segmentDelivery')}
       sx={{
         backgroundColor: '#6495ed',
+        display: `${isAdmin ? 'flex' : 'none' }`,
       }}
     >
       セグメント配信
@@ -93,6 +104,7 @@ const UserMenu = (props) => {
       onClick={() => navigate('/salesManagement/monthly')}
       sx={{
         backgroundColor: '#6495ed',
+        display: `${isAdmin ? 'flex' : 'none' }`,
       }}
     >
       売上管理
@@ -101,6 +113,7 @@ const UserMenu = (props) => {
       onClick={() => navigate('/inquiryManagement')}
       sx={{
         backgroundColor: '#6495ed',
+        display: `${isAdmin ? 'flex' : 'none' }`,
       }}
     >
       問い合わせ管理
@@ -109,6 +122,7 @@ const UserMenu = (props) => {
       onClick={() => navigate('/newsManagement')}
       sx={{
         backgroundColor: '#6495ed',
+        display: `${isAdmin ? 'flex' : 'none' }`,
       }}
     >
       お知らせ管理

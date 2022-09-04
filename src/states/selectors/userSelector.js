@@ -15,6 +15,28 @@ const isLoginState = selector({
   },
 })
 
+const isSystemAdminState = selector({
+  key: 'isSystemAdmin',
+  get: ({get}) => {
+    const user = get(userState)
+    if(user.role_level === 'system_admin') {
+      return true;
+    }
+    return false;
+  }
+})
+
+const isAdminState = selector({
+  key: 'isSystemAdmin',
+  get: ({get}) => {
+    const user = get(userState)
+    if(user.role_level === 'system_admin' || user.role_level === 'event_admin') {
+      return true;
+    }
+    return false;
+  }
+})
+
 const getUser = selector({
   key: 'getUser',
   get: ({get}) => {
@@ -31,4 +53,4 @@ const getAccessToken = selector({
   },
 })
 
-export { isLoginState, getAccessToken, getUser }
+export { isLoginState, getAccessToken, getUser, isSystemAdminState, isAdminState}
