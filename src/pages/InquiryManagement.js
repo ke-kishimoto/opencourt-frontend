@@ -5,10 +5,12 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useState, useEffect } from 'react';
 import { useAxios } from '../utils/axiosUtil';
+import { useNavigate } from 'react-router-dom';
 
 const InquiryManagement = () => {
 
   const axios = useAxios();
+  const navigate = useNavigate();
   const [inquiries, setInquiries] = useState([]);
 
   useEffect(() => {
@@ -21,9 +23,9 @@ const InquiryManagement = () => {
 
   return (
     <Container maxWidth={'lg'}
-    sx={{
-      minHeight: 650,
-    }}
+      sx={{
+        minHeight: 650,
+      }}
     >
       <SearchForm />
       {inquiries.map(e => {
@@ -38,6 +40,9 @@ const InquiryManagement = () => {
                 backgroundColor: '#EEE',
                 cursor: 'pointer',
               },
+            }}
+            onClick={() => {
+              navigate(`/inquiry/${e.id}`)
             }}
           >
             <Grid container>
@@ -66,7 +71,6 @@ const InquiryManagement = () => {
           </Box>
         )
       })}
-
     </Container>
   )
 }

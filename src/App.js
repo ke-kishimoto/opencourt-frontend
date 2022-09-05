@@ -25,6 +25,7 @@ import EventManagement from './pages/EventManagement';
 import NewEvent from './pages/NewEvent';
 import Inquiry from './pages/Inquiry';
 import InquiryManagement from './pages/InquiryManagement';
+import InquiryDetail from './pages/InquiryDetail';
 import BulkReservation from './pages/BulkReservation';
 import SalesManagement from './pages/SalesManagement';
 import MonthlySalesManagement from './components/MonthlySlaesManagement';
@@ -66,6 +67,7 @@ function App() {
           <Route path="/newEvent" element={<NewEvent/>}></Route>
           <Route path="/inquiry" element={<Inquiry/>}></Route>
           <Route path="/inquiryManagement" element={<InquiryManagement/>}></Route>
+          <Route path="/inquiry/:id" element={<InquiryDetail/>}></Route>
           <Route path="/bulkReservation" element={<BulkReservation/>}></Route>
           <Route path="/eventDetail/:id" element={<EventDetail/>}>
             <Route path="eventSales" element={<EventSales/>}></Route>
