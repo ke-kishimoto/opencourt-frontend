@@ -27,7 +27,7 @@ const isSystemAdminState = selector({
 })
 
 const isAdminState = selector({
-  key: 'isSystemAdmin',
+  key: 'isAdmin',
   get: ({get}) => {
     const user = get(userState)
     if(user.role_level === 'system_admin' || user.role_level === 'event_admin') {
