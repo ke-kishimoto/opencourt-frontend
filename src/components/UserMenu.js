@@ -38,15 +38,6 @@ const UserMenu = (props) => {
     システム設定
     </MenuItem>
     <MenuItem
-      onClick={() => {navigate('/logManagement')}}
-      sx={{
-        backgroundColor: "#ffb6c1",
-        display: `${isSystemAdmin ? 'flex' : 'none' }`,
-      }}
-    >
-      ログ管理
-    </MenuItem>
-    <MenuItem
       onClick={() => {navigate('/policyManagement')}}
       sx={{
         backgroundColor: "#ffb6c1",

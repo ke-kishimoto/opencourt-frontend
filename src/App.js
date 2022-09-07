@@ -14,7 +14,6 @@ import NewEventTemplate from './pages/NewEventTemplate';
 import EditEventTemplate from './pages/EditEventTemplate';
 import EventDetail from './pages/EventDetail';
 import PolicyManagement from './pages/PolicyMnagement';
-import LogManagement from './pages/LogManagement';
 import UserCategory from './pages/UserCategory';
 import SegmentDelivery from './pages/SegmentDelivery';
 import EventSales from './components/EventSales';
@@ -61,7 +60,6 @@ function App() {
           <Route path="/eventTemplate/:id" element={<EditEventTemplate/>}></Route>
           <Route path="/segmentDelivery" element={<SegmentDelivery/>}></Route>
           <Route path="/policyManagement" element={<PolicyManagement/>}></Route>
-          <Route path="/logManagement" element={<LogManagement/>}></Route>
           <Route path="/userCategory" element={<UserCategory/>}></Route>
           <Route path="/eventManagement" element={<EventManagement/>}></Route>
           <Route path="/newEvent" element={<NewEvent/>}></Route>
