@@ -5,6 +5,7 @@ import { useRecoilValue } from 'recoil';
 import { getUser } from '../states/selectors/userSelector';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
 
 const MyPage = () => {
 
@@ -20,12 +21,25 @@ const MyPage = () => {
       <UserDetailItem 
         user={user}
       />
-      <Button
-        variant="outlined"
-        onClick={() => navigate('/editUser')}
-      >
-        ユーザー情報変更
-      </Button>
+      <Grid container>
+
+        <Grid item xs={2}>
+          <Button
+            variant="outlined"
+            onClick={() => navigate('/editUser')}
+          >
+            ユーザー情報変更
+          </Button>
+        </Grid>
+        <Grid item xs={2}>
+          <Button
+            variant="outlined"
+            onClick={() => navigate('/changePassword')}
+          >
+            パスワード変更
+          </Button>
+        </Grid>
+      </Grid>
       <JoinForm 
         id={user.id}
       />
