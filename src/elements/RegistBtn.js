@@ -43,7 +43,14 @@ const RegisterBtn = (props) => {
       } 
     }).catch(error => {
       setSeverity('error')
-      setMessage(`${props.mode === 'new' ? '登録' : '更新'}に失敗しました。`)
+      let msg = `${props.mode === 'new' ? '登録' : '更新'}に失敗しました。`
+      if(error.response !== undefined && error.response.status === 422) {
+        Object.keys(error.response.data.errors).forEach(key => {
+          msg += '\n' + error.response.data.errors[key]
+        })
+        
+      }
+      setMessage(msg)
       setSnackbarOpen(true);
     }
     ).finally(() => setProgressOpen(false))
