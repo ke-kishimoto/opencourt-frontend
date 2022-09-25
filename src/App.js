@@ -5,7 +5,8 @@ import Footer from './components/Footer';
 import Top from './pages/Top';
 import Login from './pages/Login';
 import NewUser from './pages/NewUser';
-import PasswordForget from './pages/PasswordForget';
+import ForgetPassword from './pages/ForgetPassword';
+import NewPassword from './pages/NewPassword';
 import Policy from './pages/Policy';
 import UserManagement from './pages/UserManagement';
 import UserDetail from './pages/UserDetail';
@@ -52,7 +53,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/newUser" element={<NewUser />}></Route>
-          <Route path="/passwordForget" element={<PasswordForget />}></Route>
+          <Route path="/passwordForget" element={<ForgetPassword />}></Route>
+          <Route path="/newPassword" element={<NewPassword />}></Route>
           <Route path="/policy/:type" element={<Policy />}></Route>
           <Route path="/userManagement" element={<UserManagement/>}></Route>
           <Route path="/userDetail/:id" element={<UserDetail/>}></Route>
