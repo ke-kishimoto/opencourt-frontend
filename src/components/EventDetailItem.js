@@ -49,8 +49,11 @@ const EventDetailItem = () => {
         <Grid item xs={12}>
           <Typography>参加人数： {event.user_count} / {event.limit_number}</Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Typography>参加費</Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography>参加人数内訳</Typography>
         </Grid>
         {categories.map((e, index) => {
           return (

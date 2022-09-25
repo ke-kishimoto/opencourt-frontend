@@ -15,7 +15,11 @@ const ChangePassword = () => {
   }
 
   return (
-		<Container maxWidth={'lg'}>
+    <Container maxWidth={'lg'}
+      sx={{
+        minHeight: 650,
+      }}
+    >
 			<Grid container spacing={5} margin={1}>
         <Grid item xs={12}>
 					<TextField

@@ -35,7 +35,7 @@ const SegmentDelivery = () => {
 		<Container maxWidth={'lg'}>
 			<Grid container spacing={5} margin={1}>
 				<Grid item xs={12}>
-				<FormControl sx={{ width: '50%' }}>
+				  <FormControl sx={{ width: '50%' }}>
 						<InputLabel>対象イベント</InputLabel>
 						<Select
 							required

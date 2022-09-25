@@ -1,3 +1,4 @@
+import Container from '@mui/material/Container';
 import {useState, useEffect} from 'react';
 import Typography from '@mui/material/Typography';
 import { useAxios } from '../utils/axiosUtil';
@@ -17,9 +18,9 @@ const Policy = () => {
   }, [type])
 
 	return (
-		<>
+		<Container maxWidth={'lg'}>
 			<Typography><pre>{policy}</pre></Typography>
-		</>
+		</Container>
 	)
 }
 

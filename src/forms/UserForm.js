@@ -49,6 +49,7 @@ const UserForm = (props) => {
         >
 					<TextField
             fullWidth
+            type="password"
             name="password"
 						label="パスワード"
 						variant="outlined"
@@ -61,6 +62,7 @@ const UserForm = (props) => {
         >
 					<TextField
             fullWidth
+            type="password"
             name="rePassword"
 						label="パスワード（確認用）"
 						variant="outlined"

@@ -33,6 +33,7 @@ const UserMenu = (props) => {
       onClick={() => navigate('/configManagement')}
       sx={{
         backgroundColor: "#ffb6c1",
+        display: `${isSystemAdmin ? 'flex' : 'none' }`,
       }}
     >
     システム設定

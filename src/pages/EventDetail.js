@@ -46,7 +46,8 @@ const EventDetail = () => {
         <Button
           variant="outlined"
           sx={{
-            m: 3
+            m: 3,
+            display: `${event.status === 'end' ? 'none' : 'inline-flex'}`,
           }}
           onClick={() => { navigate('joinForm') }}
         >
@@ -55,7 +56,8 @@ const EventDetail = () => {
         <Button
           variant="outlined"
           sx={{
-            m: 3
+            m: 3,
+            display: `${event.status === 'end' ? 'none' : 'inline-flex'}`,
           }}
           onClick={() => { navigate('joinCancel') }}
         >
