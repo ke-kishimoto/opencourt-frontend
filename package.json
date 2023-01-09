@@ -1,6 +1,5 @@
 {
   "name": "opencourt-frontend",
-  "homepage": "https://ke-kishimoto.github.io/opencourt-frontend/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
